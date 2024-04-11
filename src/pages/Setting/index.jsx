@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import SgSwitchItem from '../../components/SgSwitchItem';
 
 import "./index.css"
 
@@ -8,6 +9,10 @@ export default function Setting() {
 
     function back() {
         navigate(-1);
+    }
+
+    function getSonData(isChecked) {
+        console.log(isChecked);
     }
 
     return (
@@ -23,58 +28,56 @@ export default function Setting() {
                 {/* #endregion */}
                 {/* --------End------ */}
 
-                <a href="https://github.com/login/oauth/authorize?client_id=42465858d68d5a436ca9">hello</a>
-                <svg id="github" className="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
-                    <path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-
                 <section className='setting-body'>
-                    SettingContent
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
+
+                    {/* ------ 常规设置 ----- */}
+                    {/* #region */}
+                    <section className='regular-option'>
+                        <h3>常规</h3>
+                        <section className='option-list-wrap'>
+                            <SgSwitchItem title="在顶部添加新任务" updateData={getSonData} />
+                            <SgSwitchItem title="将带有星标的任务移至顶部" updateData={getSonData} />
+                            <SgSwitchItem title="在删除前确认" updateData={getSonData} />
+                        </section>
+                    </section>
+                    <hr />
+                    {/* #endregion */}
+                    {/* --------End------ */}
+
+
+                    {/* ------ 主题 ----- */}
+                    {/* #region */}
+                    <section className='theme-option'>
+                        <h3>主题</h3>
+                        <section className='option-list-wrap'>
+                            <label htmlFor="theme">
+                                <input type="radio" name="theme" /> 浅色主题
+                                <input type="radio" name="theme" /> 深色主题
+                                <input type="radio" name="theme" /> 默认主题
+                            </label>
+                        </section>
+                    </section>
+                    <hr />
+                    {/* #endregion */}
+                    {/* --------End------ */}
+
+
+                    {/* ------ 智能列表 ----- */}
+                    {/* #region */}
+                    <section className='theme-option'>
+                        <h3>主题</h3>
+                        <section className='option-list-wrap'>
+                            <section>
+                                <div className="icon">icon</div>
+                                <div className="title">title</div>
+                                <div className="switch">switch</div>
+                            </section>
+                        </section>
+                    </section>
+                    {/* #endregion */}
+                    {/* --------End------ */}
+
+
 
                     {/* ------ 关于 ----- */}
                     {/* #region */}
