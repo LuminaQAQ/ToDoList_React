@@ -21,7 +21,7 @@
   height: 100%;
 }
 .todolist-main-wrap .router-view {
-  height: calc(100% - 10rem);
+  height: calc(100% - 11rem);
   overflow-y: auto;
   scrollbar-width: none;
 }
@@ -31,19 +31,26 @@
   padding: 1rem;
   margin: 0.25rem 0rem;
 }
+.todolist-main-wrap .add-task-wrap .sg-todo-item-icon-add,
 .todolist-main-wrap .add-task-wrap .sg-todo-item-icon-check {
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 1rem;
   object-fit: cover;
   margin-left: 1rem;
-  content: url("../../asserts/imgs/MainBody/todo-unfinished.png");
 }
+.todolist-main-wrap .add-task-wrap .sg-todo-item-icon-add img,
 .todolist-main-wrap .add-task-wrap .sg-todo-item-icon-check img {
   width: 100%;
   height: 100%;
 }
+.todolist-main-wrap .add-task-wrap .sg-todo-item-icon-check {
+  content: url("../../asserts/imgs/MainBody/todo-unfinished.png");
+}
 .todolist-main-wrap .add-task-wrap .sg-todo-item-text:focus + .sg-todo-item-icon-check {
+  content: url("../../asserts/imgs/MainBody/add.png");
+}
+.todolist-main-wrap .add-task-wrap .sg-todo-item-icon-add {
   content: url("../../asserts/imgs/MainBody/add.png");
 }
 .todolist-main-wrap .add-task-wrap .sg-todo-item-text {

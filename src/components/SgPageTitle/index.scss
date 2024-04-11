@@ -22,12 +22,46 @@
   }
 
   // 页面功能区域
-  .page-header-menu {
-    @include icon(1.5rem);
-    @include element-hover;
-    padding: 0.5rem;
+  .page-header-menu-wrap {
+    position: relative;
 
-    content: url("../../asserts/imgs/MainBody/more.png");
+    .page-header-menu {
+      @include icon(1.5rem);
+      @include element-hover;
+      padding: 0.5rem;
+
+      content: url("../../asserts/imgs/MainBody/more.png");
+    }
+
+    .page-header-menu-tip {
+      visibility: hidden;
+
+      position: absolute;
+      left: calc(-50% - 1rem);
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      padding: 0.5rem 1rem;
+      width: 2rem;
+      background-color: transparentize($card-bgcolor, 0.5);
+      box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.1);
+
+      &::before {
+        content: "";
+        position: absolute;
+
+        top: 50%;
+        right: calc(-50% - 0.25rem);
+        transform: translate(-50%, -50%);
+
+        border: 0.75rem solid transparent;
+        border-left-color: transparentize($card-bgcolor, 0.5);
+      }
+    }
+
+    .page-header-menu:hover + .page-header-menu-tip {
+      visibility: visible;
+    }
   }
 
   // 设置区域

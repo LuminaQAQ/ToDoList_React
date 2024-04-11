@@ -34,11 +34,14 @@ export default function SgPageTitle(props) {
 
             {/* ------ 功能区域 ----- */}
             {/* #region */}
-            <section
-                className='page-header-menu'
-                onClick={handleMenuShow}
-            >
-            </section>
+            <div className="page-header-menu-wrap">
+                <section
+                    className='page-header-menu'
+                    onClick={handleMenuShow}
+                >
+                </section>
+                <span className='page-header-menu-tip'>设置</span>
+            </div>
             {/* #endregion */}
             {/* --------End------ */}
 

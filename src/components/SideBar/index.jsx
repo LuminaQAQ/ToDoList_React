@@ -10,6 +10,7 @@ import SgCategoryItem from '../SgCategoryItem'
 import searchDarkIcon from '../../asserts/imgs/SideBar/search_dark.png'
 // import searchLightIcon from '../../asserts/imgs/SideBar/search_light.png'
 import createGroupIcon from '../../asserts/imgs/SideBar/create_group.png'
+import SgUserCategoryItem from '../SgUserCategoryItem'
 
 export default function SideBar() {
     const fixedCategories = [
@@ -82,20 +83,7 @@ export default function SideBar() {
             {/* ------ 用户自定义分类 ----- */}
             {/* #region */}
             <section className='user-categories'>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
+                <SgUserCategoryItem to={'/userTask'} title="无标题列表" icon="userlist" />
             </section>
             {/* #endregion */}
             {/* --------End------ */}

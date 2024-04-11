@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import SgTodoItem from '../../components/SgTodoItem'
 
-export default function Important() {
+export default function ImportantView() {
     return (
         <Fragment>
             <SgTodoItem />

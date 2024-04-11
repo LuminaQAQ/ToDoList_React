@@ -1,3 +1,7 @@
+.mobile-nav {
+  display: none;
+}
+
 @media screen and (max-width: 28rem) {
   /* ------- 侧边栏 ------- */
   /* #region  */
@@ -9,6 +13,69 @@
     transition: width 0.3s !important;
 
     overflow: hidden !important;
+  }
+  /* #endregion */
+  /* ------- end  ------- */
+
+  /* ------- 手机侧边栏 ------- */
+  /* #region  */
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 60%;
+    height: 100%;
+
+    z-index: 999;
+
+    transition: width 0.3s, opacity 0.3s;
+
+    .todolist-sidebar-wrap {
+      width: 100% !important;
+      height: 100%;
+
+      z-index: 999;
+    }
+
+    &.hide {
+      width: 0;
+      opacity: 0;
+      transition: width 0.3s, opacity 0.3s;
+    }
+  }
+
+  .mobile-nav-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    z-index: 998;
+
+    &.hide {
+      animation: hide-mask 0.3s forwards;
+    }
+  }
+
+  @keyframes hide-mask {
+    from {
+      opacity: 1;
+      width: 100%;
+    }
+    99% {
+      opacity: 0;
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
   }
   /* #endregion */
   /* ------- end  ------- */
