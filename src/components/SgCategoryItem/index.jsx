@@ -13,9 +13,7 @@ export default function SgCategoryItem(props) {
 
     return (
         <NavLink to={to} className={isActived}>
-            <section className='icon-wrap'>
-                <img src={icon} alt="icon" />
-            </section>
+            <section className={`icon-wrap ${icon}-icon`}></section>
 
             <section className='title-wrap'>
                 {title}

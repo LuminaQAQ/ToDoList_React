@@ -1,3 +1,12 @@
+@import "../../asserts/style/default.css";
+.important-icon {
+  content: url("../../asserts/imgs/SideBar/important.png");
+}
+
+.my-today-icon {
+  content: url("../../asserts/imgs/SideBar/today.png");
+}
+
 .sg-category-item-wrap {
   position: relative;
   display: flex;

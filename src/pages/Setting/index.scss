@@ -1,0 +1,42 @@
+@import "../../asserts/style/default.scss";
+
+.setting-container {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: $dark-bgcolor;
+
+  .setting-wrap {
+    width: calc(100% - 2rem);
+    height: 100%;
+    padding: 1rem;
+
+    .setting-header {
+      @include flex-center;
+
+      font-size: 1.75rem;
+      line-height: 1.75;
+      font-weight: bold;
+
+      .setting-header-back {
+        @include icon(1.75rem);
+        @include element-hover;
+
+        content: url("../../asserts/imgs/MainBody/back.png");
+        padding: 0.5rem;
+      }
+    }
+
+    .setting-body {
+      scrollbar-width: none;
+
+      height: calc(100% - 6rem);
+
+      overflow: auto;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import "../../asserts/style/icon.css";
+.header-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 0 1.75rem 0;
+}
+.header-title-wrap .page-header-category {
+  display: flex;
+  align-items: center;
+  line-height: 1.75;
+  font-size: 1.75rem;
+  font-weight: bolder;
+}
+.header-title-wrap .page-header-category .title-wrap {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+.header-title-wrap .page-header-category .title-wrap img {
+  width: 100%;
+  height: 100%;
+}
+.header-title-wrap .page-header-menu {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  padding: 0.5rem;
+  content: url("../../asserts/imgs/MainBody/more.png");
+}
+.header-title-wrap .page-header-menu img {
+  width: 100%;
+  height: 100%;
+}
+.header-title-wrap .page-header-menu:hover {
+  background-color: rgba(204, 204, 204, 0.1);
+  border-radius: 3px;
+}

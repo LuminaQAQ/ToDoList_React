@@ -1,0 +1,15 @@
+.important-icon {
+  content: url("../imgs/SideBar/important.png");
+}
+
+.today-icon {
+  content: url("../imgs/SideBar/today.png");
+}
+
+.tasklist-icon {
+  content: url("../imgs/SideBar/task-dark.png");
+}
+
+.search-icon {
+  content: url("../imgs/SideBar/search_dark.png");
+}

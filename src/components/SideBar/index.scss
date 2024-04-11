@@ -1,4 +1,6 @@
 @import "../../asserts/style/default.scss";
+@import "../../asserts/style/mobile.css";
+@import "../../asserts/style/icon.css";
 
 .todolist-sidebar-wrap {
   height: 100%;
@@ -61,6 +63,7 @@
     overflow-y: scroll;
 
     scrollbar-width: none;
+    // @include scrollbar;
   }
 
   .create-new-wrap {
@@ -94,17 +97,5 @@
 
       padding: 0.5rem;
     }
-  }
-}
-
-@media screen and (max-width: 28rem) {
-  .todolist-sidebar-wrap {
-    width: 0rem;
-    min-width: 0rem;
-    max-width: none;
-
-    transition: width 0.3s;
-
-    overflow: hidden;
   }
 }

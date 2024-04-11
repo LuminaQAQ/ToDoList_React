@@ -1,19 +1,21 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import {  useRoutes } from 'react-router-dom'
+
+import MyRoutes from '../../routes/'
+
 import SgPageTitle from '../SgPageTitle'
 
 import "./index.css"
-
-
+import "../../asserts/style/mobile.css"
 
 export default function MainBody() {
+    const routes = useRoutes(MyRoutes);
+
     return (
         <section className='todolist-main-wrap'>
             {/* ------ nav占位符 ----- */}
             {/* #region */}
-            <nav className='meadia-nav-placeholder-wrap'>
-                nav-icon
-            </nav>
+            <nav className='mobile-nav-placeholder-wrap'></nav>
             {/* #endregion */}
             {/* --------End------ */}
 
@@ -25,25 +27,25 @@ export default function MainBody() {
 
             {/* ------ 主要内容(路由页面) ----- */}
             {/* #region */}
-            <section className=''>
-                <ol>
-                    <li>todo1</li>
-                    <li>todo2</li>
-                    <li>todo3</li>
-                </ol>
+            <section className='router-view'>
+                {routes}
             </section>
+            <hr />
             {/* #endregion */}
             {/* --------End------ */}
 
-            {/* ------ name ----- */}
+            {/* ------ 添加todo ----- */}
             {/* #region */}
             <section className='add-task-wrap'>
-                add-task
+                <section className=''>
+                </section>
+                <input className='sg-todo-item-text' type="text" placeholder='添加任务' />
+
+                <section className='sg-todo-item-icon-check'></section>
+                <section className='sg-todo-item-icon-favorite'></section>
             </section>
             {/* #endregion */}
             {/* --------End------ */}
-
-            <Outlet />
         </section>
     )
 }

@@ -1,0 +1,26 @@
+@import "../../asserts/style/default.scss";
+
+.sg-todo-item-wrap {
+  display: flex;
+  background-color: #373737;
+  padding: 1rem;
+  margin: 0.25rem 0rem;
+
+  .sg-todo-item-icon-check {
+    @include icon(1.5rem);
+
+    content: url("../../asserts/imgs/MainBody/todo-unfinished.png");
+  }
+
+  .sg-todo-item-text {
+    @include flex-center;
+
+    flex: 1 0 auto;
+  }
+
+  .sg-todo-item-icon-favorite {
+    @include icon(1.5rem);
+
+    content: url("../../asserts/imgs/MainBody/unfavorite.png");
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../asserts/style/default.scss";
+@import "../../asserts/style/icon.css";
+
+.header-title-wrap {
+  @include flex-center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0.75rem 0 1.75rem 0;
+
+  // 页面标题区域
+  .page-header-category {
+    @include flex-center;
+
+    line-height: 1.75;
+    font-size: 1.75rem;
+    font-weight: bolder;
+
+    .title-wrap {
+      @include icon(1.75rem);
+    }
+  }
+
+  // 页面功能区域
+  .page-header-menu {
+    @include icon(1.5rem);
+    @include element-hover;
+    padding: 0.5rem;
+
+    content: url("../../asserts/imgs/MainBody/more.png");
+  }
+
+  // 设置区域
+}

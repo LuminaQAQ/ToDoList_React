@@ -1,0 +1,28 @@
+@media screen and (max-width: 28rem) {
+  /* ------- 侧边栏 ------- */
+  /* #region  */
+  .todolist-sidebar-wrap {
+    width: 0rem !important ;
+    min-width: 0rem !important;
+    max-width: none !important;
+
+    transition: width 0.3s !important;
+
+    overflow: hidden !important;
+  }
+  /* #endregion */
+  /* ------- end  ------- */
+
+  /* ------- 页面展示部分 ------- */
+  /* #region  */
+  .todolist-main-wrap {
+    padding-bottom: 3rem;
+    .mobile-nav-placeholder-wrap {
+      visibility: visible !important;
+      height: 1.5rem !important;
+      transition: height 0.3s;
+    }
+  }
+  /* #endregion */
+  /* ------- end  ------- */
+}

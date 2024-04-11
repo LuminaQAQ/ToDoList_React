@@ -1,9 +1,11 @@
 $dark-bgcolor: #222222;
 $dark-text-color: #ffffff;
+$card-bgcolor: #373737;
 
 @mixin icon($size) {
   width: $size;
   height: $size;
+  margin-right: 1rem;
 
   object-fit: cover;
 
@@ -17,5 +19,19 @@ $dark-text-color: #ffffff;
   &:hover {
     background-color: rgba(204, 204, 204, 0.1);
     border-radius: 3px;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin scrollbar {
+  scrollbar-width: none;
+  scrollbar-color: #9b9b9b rgba(145, 145, 145, 0);
+
+  &:hover {
+    scrollbar-width: thin;
   }
 }

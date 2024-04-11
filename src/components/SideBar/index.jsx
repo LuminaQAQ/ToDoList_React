@@ -9,31 +9,28 @@ import SgCategoryItem from '../SgCategoryItem'
 // 图标
 import searchDarkIcon from '../../asserts/imgs/SideBar/search_dark.png'
 // import searchLightIcon from '../../asserts/imgs/SideBar/search_light.png'
-import importIcon from '../../asserts/imgs/SideBar/important.png'
-import todayIcon from '../../asserts/imgs/SideBar/today.png'
-import tasklistIcon from '../../asserts/imgs/SideBar/task-dark.png'
 import createGroupIcon from '../../asserts/imgs/SideBar/create_group.png'
 
 export default function SideBar() {
     const fixedCategories = [
         {
             key: "001",
-            to: '/important',
-            icon: importIcon,
+            to: '/important?title=重要&icon=important',
+            icon: 'important',
             title: '重要',
             nums: 0,
         },
         {
             key: "002",
-            to: '/today',
-            icon: todayIcon,
+            to: '/today?title=我的一天&icon=today',
+            icon: 'today',
             title: '我的一天',
             nums: 0,
         },
         {
             key: "003",
-            to: '/tasklist',
-            icon: tasklistIcon,
+            to: '/tasklist?title=任务&icon=tasklist',
+            icon: 'tasklist',
             title: '任务',
             nums: 0,
         },
@@ -45,9 +42,8 @@ export default function SideBar() {
             {/* ------ 用户信息区域 ----- */}
             {/* #region */}
             <section className='userinfo-wrap'>
-                <section className='userinfo-avatar'>
-                    <img src={todayIcon} alt="" />
-                </section>
+                <section className='userinfo-avatar today-icon'></section>
+
                 <section className='userinfo-username'>
                     username
                 </section>

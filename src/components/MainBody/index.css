@@ -1,0 +1,53 @@
+@import "../../asserts/style/mobile.css";
+.todolist-main-wrap {
+  position: relative;
+  padding: 1rem 2rem;
+  width: 100%;
+  background-color: #222222;
+  color: #ffffff;
+}
+.todolist-main-wrap .mobile-nav-placeholder-wrap {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  content: url("../../asserts/imgs/MainBody/nav.png");
+  height: 0;
+  transition: height 0.5s;
+  visibility: hidden;
+}
+.todolist-main-wrap .mobile-nav-placeholder-wrap img {
+  width: 100%;
+  height: 100%;
+}
+.todolist-main-wrap .router-view {
+  height: calc(100% - 10rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.todolist-main-wrap .add-task-wrap {
+  display: flex;
+  background-color: #070e12;
+  padding: 1rem;
+  margin: 0.25rem 0rem;
+}
+.todolist-main-wrap .add-task-wrap .sg-todo-item-icon-check {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  margin-left: 1rem;
+  content: url("../../asserts/imgs/MainBody/todo-unfinished.png");
+}
+.todolist-main-wrap .add-task-wrap .sg-todo-item-icon-check img {
+  width: 100%;
+  height: 100%;
+}
+.todolist-main-wrap .add-task-wrap .sg-todo-item-text:focus + .sg-todo-item-icon-check {
+  content: url("../../asserts/imgs/MainBody/add.png");
+}
+.todolist-main-wrap .add-task-wrap .sg-todo-item-text {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+}
