@@ -18,44 +18,53 @@ const myRoutes = [
     // 重定向
     {
         path: '/',
-        element: <Navigate to="/important" />,
+        meta: { title: 'ToDoList' },
+        element: <Navigate to="/todat" />,
     },
     {
         path: '*',
-        element: <Navigate to="/important" />,
+        meta: { title: 'ToDoList' },
+        element: <Navigate to="/today" />,
     },
 
     // 固定
     {
         path: '/today',
+        meta: { title: '我的一天' },
         element: <TodayView />,
     },
     {
         path: '/important',
+        meta: { title: '重要' },
         element: <ImportantView />,
     },
     {
         path: '/all',
+        meta: { title: '所有' },
         element: <AllTaskView />,
     },
     {
         path: '/finished',
+        meta: { title: '已完成' },
         element: <FinishedView />,
     },
     {
         path: '/tasklist',
+        meta: { title: '任务' },
         element: <TaskView />,
     },
 
     // 用户自定义
     {
         path: '/userTask',
+        meta: { title: '自定义ToDo列表' },
         element: <UserTaskView />,
     },
 
     // 设置
     {
         path: '/setting',
+        meta: { title: '设置' },
         element: <SettingView />,
     },
 ]

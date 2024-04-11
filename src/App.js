@@ -6,17 +6,21 @@ import './App.css'
 import MainBody from './components/MainBody'
 import SideBar from './components/SideBar'
 
-import routesMeta from './routes/meta.js'
+import myRoutes from './routes'
 
 
 export default function App() {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        const view = pathname.split('/')[1] || 'default';
-        const title = routesMeta[view]['title'] || 'ToDoList';
-        
-        document.title = title;
+        // const view = pathname.split('/')[1] || 'default';
+        // const title = routesMeta[view]['title'] || 'ToDoList';
+
+        const curPage = myRoutes.find(item => {
+            return item.path === pathname;
+        })
+
+        document.title = curPage.meta.title;
     }, [pathname])
 
     return (
