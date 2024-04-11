@@ -13,9 +13,6 @@ export default function App() {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        // const view = pathname.split('/')[1] || 'default';
-        // const title = routesMeta[view]['title'] || 'ToDoList';
-
         const curPage = myRoutes.find(item => {
             return item.path === pathname;
         })
