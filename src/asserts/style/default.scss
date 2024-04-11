@@ -2,6 +2,8 @@ $dark-bgcolor: #222222;
 $dark-text-color: #ffffff;
 $card-bgcolor: #373737;
 
+/* ------- 图标 ------- */
+/* #region  */
 @mixin icon($size) {
   width: $size;
   height: $size;
@@ -14,19 +16,31 @@ $card-bgcolor: #373737;
     height: 100%;
   }
 }
+/* #endregion */
+/* ------- end  ------- */
 
+/* ------- 元素移入样式 ------- */
+/* #region  */
 @mixin element-hover {
   &:hover {
     background-color: rgba(204, 204, 204, 0.1);
     border-radius: 3px;
   }
 }
+/* #endregion */
+/* ------- end  ------- */
 
+/* ------- 流式居中 ------- */
+/* #region  */
 @mixin flex-center {
   display: flex;
   align-items: center;
 }
+/* #endregion */
+/* ------- end  ------- */
 
+/* ------- 滚轴 ------- */
+/* #region  */
 @mixin scrollbar {
   scrollbar-width: none;
   scrollbar-color: #9b9b9b rgba(145, 145, 145, 0);
@@ -35,3 +49,40 @@ $card-bgcolor: #373737;
     scrollbar-width: thin;
   }
 }
+/* #endregion */
+/* ------- end  ------- */
+
+/* ------- 输入框 ------- */
+/* #region  */
+@mixin input-field {
+  display: block;
+  box-sizing: border-box;
+
+  background-color: $dark-bgcolor;
+  color: $dark-text-color;
+
+  padding: 0.5rem;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+/* #endregion */
+/* ------- end  ------- */
+
+/* ------- 数字徽章 ------- */
+/* #region  */
+@mixin nums-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1rem;
+  height: 1rem;
+  line-height: 0.75;
+  font-size: 0.75rem;
+
+  border-radius: 50%;
+  background-color: $card-bgcolor;
+}
+/* #endregion */
+/* ------- end  ------- */

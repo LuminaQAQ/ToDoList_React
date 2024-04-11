@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './index.css'
 
 export default function SgCategoryItem(props) {
-    // console.log(props);
+
     const { to, icon, title, nums } = props;
 
     function isActived(status) {
@@ -13,15 +13,31 @@ export default function SgCategoryItem(props) {
 
     return (
         <NavLink to={to} className={isActived}>
+            {/* ------ 图标 ----- */}
+            {/* #region */}
             <section className={`icon-wrap ${icon}-icon`}></section>
+            {/* #endregion */}
+            {/* --------End------ */}
 
+            {/* ------ todo组的名字 ----- */}
+            {/* #region */}
             <section className='title-wrap'>
                 {title}
             </section>
+            {/* #endregion */}
+            {/* --------End------ */}
 
-            <section className='nums-badge-wrap'>
+            {/* ------ 数字标记, 数据为零就不显示 ----- */}
+            {/* #region */}
+            <section
+                className='nums-badge-wrap'
+
+                style={nums === 0 || !nums ? { display: 'none' } : { display: 'flex' }}
+            >
                 {nums}
             </section>
+            {/* #endregion */}
+            {/* --------End------ */}
         </NavLink>
     )
 }

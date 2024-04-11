@@ -2,6 +2,8 @@
 @import "../../asserts/style/default.css";
 
 .sg-category-item-wrap {
+  /* ------- root ------- */
+  /* #region  */
   @include element-hover;
 
   position: relative;
@@ -15,7 +17,6 @@
   text-decoration: none;
   color: $dark-text-color;
 
-  // background-color: aquamarine;
   &::before {
     content: "";
     display: block;
@@ -42,6 +43,8 @@
       height: 50%;
     }
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
   .icon-wrap {
     @include icon(1.5rem);
@@ -51,5 +54,9 @@
 
   .title-wrap {
     flex: 1 0 auto;
+  }
+
+  .nums-badge-wrap {
+    @include nums-badge;
   }
 }

@@ -1,6 +1,33 @@
+@charset "UTF-8";
+/* ------- 图标 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 元素移入样式 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 流式居中 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 滚轴 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 输入框 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 数字徽章 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
 @import "../../asserts/style/mobile.css";
 @import "../../asserts/style/icon.css";
 .todolist-sidebar-wrap {
+  /* ------- root ------- */
+  /* #region  */
   background-color: #222222;
   color: #ffffff;
   width: 13rem;
@@ -10,6 +37,28 @@
   overflow-y: auto;
   scrollbar-width: none;
   border-right: 1px solid rgba(204, 204, 204, 0.25);
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 用户信息区域 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 搜索区域 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 自带的todo分组 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 用户定义的todo分组 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 新建的功能组 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
 }
 .todolist-sidebar-wrap .userinfo-wrap {
   display: flex;
@@ -36,14 +85,24 @@
 }
 .todolist-sidebar-wrap .search-wrap {
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
+  width: calc(100% - 1rem);
   padding: 1rem 0.5rem;
 }
 .todolist-sidebar-wrap .search-wrap .search-main {
-  flex: 1 0 auto;
+  width: 100%;
 }
 .todolist-sidebar-wrap .search-wrap .search-main input {
-  padding: 0;
+  display: block;
+  box-sizing: border-box;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 0.5rem;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
 }
 .todolist-sidebar-wrap .search-wrap .search-icon {
   width: 1.5rem;
@@ -61,7 +120,7 @@
   overflow-y: auto;
 }
 .todolist-sidebar-wrap .user-categories {
-  height: calc(100% - 20.6rem);
+  height: calc(100% - 26.3rem);
   overflow-y: scroll;
   scrollbar-width: none;
 }

@@ -1,10 +1,47 @@
+@charset "UTF-8";
+/* ------- 图标 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 元素移入样式 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 流式居中 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 滚轴 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 输入框 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 数字徽章 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
 @import "../../asserts/style/icon.css";
 .header-title-wrap {
+  /* ------- root ------- */
+  /* #region  */
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 0.75rem 0 1.75rem 0;
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 页面标题区域 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 设置(三个点) ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
 }
 .header-title-wrap .page-header-category {
   display: flex;

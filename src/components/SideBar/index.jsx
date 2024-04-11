@@ -16,26 +16,41 @@ export default function SideBar() {
     const fixedCategories = [
         {
             key: "001",
+            to: '/today?title=我的一天&icon=today',
+            icon: 'today',
+            title: '我的一天',
+            nums: 1,
+        },
+        {
+            key: "002",
             to: '/important?title=重要&icon=important',
             icon: 'important',
             title: '重要',
             nums: 0,
         },
         {
-            key: "002",
-            to: '/today?title=我的一天&icon=today',
-            icon: 'today',
-            title: '我的一天',
+            key: "003",
+            to: '/all?title=全部&icon=all',
+            icon: 'all',
+            title: '全部',
             nums: 0,
         },
         {
-            key: "003",
+            key: "004",
+            to: '/finished?title=重要&icon=finished',
+            icon: 'finished',
+            title: '已完成',
+            nums: 0,
+        },
+        {
+            key: "005",
             to: '/tasklist?title=任务&icon=tasklist',
             icon: 'tasklist',
             title: '任务',
             nums: 0,
         },
-    ]
+    ];
+
 
     return (
         <section className='todolist-sidebar-wrap'>

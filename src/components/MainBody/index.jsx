@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useRoutes } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { useLocation, useRoutes } from 'react-router-dom'
 
 import MyRoutes from '../../routes/'
 
@@ -14,8 +14,14 @@ export default function MainBody() {
     const routes = useRoutes(MyRoutes);
 
     const [isHide, setIsHide] = useState(true);
+
+    const todoInputRef = useRef();
     const [todoText, setTodoText] = useState('');
 
+    const { pathname } = useLocation();
+
+    // ------- nav的展开与关闭 -------
+    // #region
     function handleMobileNav() {
         if (isHide) {
             setIsHide(false);
@@ -23,38 +29,63 @@ export default function MainBody() {
             setIsHide(true);
         }
     }
+    // #endregion
+    // ------- end -------
 
-    function handleText(e) {
-        setTodoText(e.target.value);
+    // ------- 更新ToDo框的值 -------
+    // #region
+    function handleText() {
+        setTodoText(todoInputRef.current.value);
     }
+    // #endregion
+    // ------- end -------
 
+    // ------- 添加ToDo -------
+    // #region
     function addList() {
         if (todoText === "") {
-            return alert("请输入");
+            // return alert("请输入");
+            return false;
         } else {
+            todoInputRef.current.value = '';
+            setTodoText('');
             console.log("add", todoText);
         }
     }
+    // #endregion
+    // ------- end -------
+
+    // ------- 路由跳转时, nav关闭 -------
+    // #region
+    useEffect(() => {
+        setTodoText('');
+        todoInputRef.current.value = '';
+        setIsHide(true);
+    }, [pathname])
+    // #endregion
+    // ------- end -------
 
     return (
         <section className='todolist-main-wrap'>
             {/* ------ nav占位符 ----- */}
             {/* #region */}
-            <nav
-                className='mobile-nav-placeholder-wrap'
-                onClick={handleMobileNav}
-            ></nav>
+            <nav className='todolist-main-nav'>
+                <section
+                    className='mobile-nav-placeholder-wrap'
+                    onClick={handleMobileNav}
+                ></section>
 
-            <div
-                className={isHide ? "mobile-nav hide" : 'mobile-nav'}
-            >
-                <SideBar />
-            </div>
+                <section
+                    className={isHide ? "mobile-nav hide" : 'mobile-nav'}
+                >
+                    <SideBar />
+                </section>
 
-            <div
-                onClick={handleMobileNav}
-                className={isHide ? "mobile-nav-mask hide" : 'mobile-nav-mask'}
-            ></div>
+                <section
+                    onClick={handleMobileNav}
+                    className={isHide ? "mobile-nav-mask hide" : 'mobile-nav-mask'}
+                ></section>
+            </nav>
             {/* #endregion */}
             {/* --------End------ */}
 
@@ -82,6 +113,7 @@ export default function MainBody() {
                 {/* <section className=''>
                 </section> */}
                 <input
+                    ref={todoInputRef}
                     className='sg-todo-item-text'
                     type="text"
                     placeholder='添加任务'

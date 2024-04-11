@@ -2,13 +2,19 @@
 @import "../../asserts/style/mobile.css";
 
 .todolist-main-wrap {
+  /* ------- root ------- */
+  /* #region  */
   position: relative;
   padding: 1rem 2rem;
   width: 100%;
 
   background-color: $dark-bgcolor;
   color: $dark-text-color;
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 面包屑导航栏 ------- */
+  /* #region  */
   .mobile-nav-placeholder-wrap {
     @include icon(1.5rem);
 
@@ -17,7 +23,11 @@
     transition: height 0.5s;
     visibility: hidden;
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 路由页面 ------- */
+  /* #region  */
   .router-view {
     height: calc(100% - 11rem);
 
@@ -25,12 +35,21 @@
     scrollbar-width: none;
     // @include scrollbar;
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 添加ToDo ------- */
+  /* #region  */
   .add-task-wrap {
-    display: flex;
+    @include flex-center;
+
     background-color: #070e12;
     padding: 1rem;
     margin: 0.25rem 0rem;
+
+    input {
+      @include input-field;
+    }
 
     .sg-todo-item-icon-add,
     .sg-todo-item-icon-check {
@@ -56,4 +75,6 @@
       flex: 1 0 auto;
     }
   }
+  /* #endregion */
+  /* ------- end  ------- */
 }

@@ -9,6 +9,7 @@ export default function SgUserCategoryItem(props) {
     function isActived(status) {
         return status.isActive ? 'sg-category-item-wrap sg-category-item-active' : 'sg-category-item-wrap'
     }
+
     return (
         <NavLink to={`${to}?title=${title}&icon=${icon}`} className={isActived}>
             <section className={`icon-wrap userlist-icon`}></section>
@@ -17,7 +18,10 @@ export default function SgUserCategoryItem(props) {
                 {title}
             </section>
 
-            <section className='nums-badge-wrap'>
+            <section
+                className='nums-badge-wrap'
+                style={nums === 0 || !nums ? { display: 'none' } : { display: 'flex' }}
+            >
                 {nums}
             </section>
         </NavLink>

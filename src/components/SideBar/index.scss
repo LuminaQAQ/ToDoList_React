@@ -3,6 +3,8 @@
 @import "../../asserts/style/icon.css";
 
 .todolist-sidebar-wrap {
+  /* ------- root ------- */
+  /* #region  */
   background-color: $dark-bgcolor;
   color: $dark-text-color;
 
@@ -15,7 +17,11 @@
   scrollbar-width: none;
 
   border-right: 1px solid rgba(204, 204, 204, 0.25);
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 用户信息区域 ------- */
+  /* #region  */
   .userinfo-wrap {
     display: flex;
     align-items: center;
@@ -39,18 +45,26 @@
       width: calc(100% - 5rem);
     }
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 搜索区域 ------- */
+  /* #region  */
   .search-wrap {
-    display: flex;
+    @include flex-center;
     flex-wrap: nowrap;
+
+    width: calc(100% - 1rem);
 
     padding: 1rem 0.5rem;
 
     .search-main {
-      flex: 1 0 auto;
+      // flex: 1 0 auto;
+      width: 100%;
 
       input {
-        padding: 0;
+        @include input-field;
+        width: 100%;
       }
     }
 
@@ -59,21 +73,33 @@
       margin-right: 0;
     }
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 自带的todo分组 ------- */
+  /* #region  */
   .fixed-categories {
     padding: 0 0.1rem;
     overflow-y: auto;
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 用户定义的todo分组 ------- */
+  /* #region  */
   .user-categories {
-    height: calc(100% - 20.6rem);
+    height: calc(100% - 26.3rem);
 
     overflow-y: scroll;
 
     scrollbar-width: none;
     // @include scrollbar;
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
+  /* ------- 新建的功能组 ------- */
+  /* #region  */
   .create-new-wrap {
     display: flex;
     align-items: center;
@@ -109,4 +135,6 @@
       margin-right: 0rem;
     }
   }
+  /* #endregion */
+  /* ------- end  ------- */
 }

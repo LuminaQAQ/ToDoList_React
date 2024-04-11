@@ -2,13 +2,18 @@
 @import "../../asserts/style/icon.css";
 
 .header-title-wrap {
+  /* ------- root ------- */
+  /* #region  */
   @include flex-center;
   justify-content: space-between;
 
   width: 100%;
   padding: 0.75rem 0 1.75rem 0;
+  /* #endregion */
+  /* ------- end  ------- */
 
-  // 页面标题区域
+  /* ------- 页面标题区域 ------- */
+  /* #region  */
   .page-header-category {
     @include flex-center;
 
@@ -20,8 +25,11 @@
       @include icon(1.75rem);
     }
   }
+  /* #endregion */
+  /* ------- end  ------- */
 
-  // 页面功能区域
+  /* ------- 设置(三个点) ------- */
+  /* #region  */
   .page-header-menu-wrap {
     position: relative;
 
@@ -63,6 +71,6 @@
       visibility: visible;
     }
   }
-
-  // 设置区域
+  /* #endregion */
+  /* ------- end  ------- */
 }

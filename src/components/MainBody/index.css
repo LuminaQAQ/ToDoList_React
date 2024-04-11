@@ -1,10 +1,51 @@
+@charset "UTF-8";
+/* ------- 图标 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 元素移入样式 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 流式居中 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 滚轴 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 输入框 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 数字徽章 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
 @import "../../asserts/style/mobile.css";
 .todolist-main-wrap {
+  /* ------- root ------- */
+  /* #region  */
   position: relative;
   padding: 1rem 2rem;
   width: 100%;
   background-color: #222222;
   color: #ffffff;
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 面包屑导航栏 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 路由页面 ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
+  /* ------- 添加ToDo ------- */
+  /* #region  */
+  /* #endregion */
+  /* ------- end  ------- */
 }
 .todolist-main-wrap .mobile-nav-placeholder-wrap {
   width: 1.5rem;
@@ -27,9 +68,20 @@
 }
 .todolist-main-wrap .add-task-wrap {
   display: flex;
+  align-items: center;
   background-color: #070e12;
   padding: 1rem;
   margin: 0.25rem 0rem;
+}
+.todolist-main-wrap .add-task-wrap input {
+  display: block;
+  box-sizing: border-box;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 0.5rem;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 .todolist-main-wrap .add-task-wrap .sg-todo-item-icon-add,
 .todolist-main-wrap .add-task-wrap .sg-todo-item-icon-check {
