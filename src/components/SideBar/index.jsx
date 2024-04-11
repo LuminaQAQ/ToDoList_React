@@ -46,7 +46,7 @@ export default function SideBar() {
             {/* #region */}
             <section className='userinfo-wrap'>
                 <section className='userinfo-avatar'>
-                    <img src="" alt="" />头像
+                    <img src={todayIcon} alt="" />
                 </section>
                 <section className='userinfo-username'>
                     username
@@ -83,7 +83,7 @@ export default function SideBar() {
             {/* #endregion */}
             {/* --------End------ */}
 
-            {/* ------ name ----- */}
+            {/* ------ 用户自定义分类 ----- */}
             {/* #region */}
             <section className='user-categories'>
                 <p>1</p>
@@ -104,7 +104,7 @@ export default function SideBar() {
             {/* #endregion */}
             {/* --------End------ */}
 
-            {/* ------ name ----- */}
+            {/* ------ 新建功能区 ----- */}
             {/* #region */}
             <section className='create-new-wrap'>
                 <section className='create-new-list'>

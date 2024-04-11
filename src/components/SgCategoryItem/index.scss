@@ -15,23 +15,30 @@
   color: $dark-text-color;
 
   // background-color: aquamarine;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    height: 0;
+    width: 3px;
+    border-radius: 10px;
+
+    transform: translateY(-50%);
+
+    background-color: #76b9ed;
+
+    transition: height 0.3s;
+  }
 
   &.sg-category-item-active {
     background-color: rgba(204, 204, 204, 0.1);
+
     &::before {
-      content: "";
-      display: block;
-      position: absolute;
-
-      top: 50%;
-      left: 0;
-
       height: 50%;
-      width: 3px;
-
-      transform: translateY(-50%);
-
-      background-color: black;
     }
   }
 
@@ -39,5 +46,9 @@
     @include icon(1.5rem);
 
     margin-right: 1rem;
+  }
+
+  .title-wrap {
+    flex: 1 0 auto;
   }
 }

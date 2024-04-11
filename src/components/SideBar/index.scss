@@ -6,12 +6,14 @@
   background-color: $dark-bgcolor;
   color: $dark-text-color;
 
+  width: 13rem;
   max-width: 25rem;
   min-width: 13rem;
-  width: 13rem;
+  transition: all 0.3s;
 
   .userinfo-wrap {
     display: flex;
+    align-items: center;
 
     box-sizing: border-box;
     padding: 1rem 0.5rem;
@@ -22,7 +24,10 @@
     // background-color: #ccc;
 
     .userinfo-avatar {
-      width: 5rem;
+      @include icon(3rem);
+      margin-right: 1rem;
+
+      border-radius: 50%;
     }
 
     .userinfo-username {
@@ -54,6 +59,8 @@
     height: calc(100% - 19.7rem);
 
     overflow-y: scroll;
+
+    scrollbar-width: none;
   }
 
   .create-new-wrap {
@@ -87,5 +94,17 @@
 
       padding: 0.5rem;
     }
+  }
+}
+
+@media screen and (max-width: 28rem) {
+  .todolist-sidebar-wrap {
+    width: 0rem;
+    min-width: 0rem;
+    max-width: none;
+
+    transition: width 0.3s;
+
+    overflow: hidden;
   }
 }
