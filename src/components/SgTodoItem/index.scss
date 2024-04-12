@@ -1,6 +1,8 @@
 @import "../../asserts/style/default.scss";
 
 .sg-todo-item-wrap {
+  @include element-hover;
+
   display: flex;
   background-color: #373737;
   padding: 1rem;
@@ -10,17 +12,29 @@
     @include icon(1.5rem);
 
     content: url("../../asserts/imgs/MainBody/todo-unfinished.png");
+
+    &:hover {
+      content: url("../../asserts/imgs/MainBody/todo-done.png");
+    }
   }
 
   .sg-todo-item-text {
     @include flex-center;
 
-    flex: 1 0 auto;
+    flex: 1 0 calc(100% - 5rem);
   }
 
   .sg-todo-item-icon-favorite {
     @include icon(1.5rem);
 
     content: url("../../asserts/imgs/MainBody/unfavorite.png");
+
+    &:hover {
+      content: url("../../asserts/imgs/SideBar/important.png");
+    }
+
+    &.important-view {
+      content: url("../../asserts/imgs/MainBody/favorite.png");
+    }
   }
 }

@@ -1,0 +1,33 @@
+@import "../../asserts/style/default.scss";
+
+.context-menu-wrap {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  padding: 0.3rem;
+
+  width: 10rem;
+  border-radius: 3px;
+
+  background-color: $dark-bgcolor;
+  color: $dark-text-color;
+
+  &.show {
+    display: block;
+  }
+
+  .sg-option {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+
+    &:hover {
+      @include element-hover;
+    }
+
+    &.delete-option {
+      color: rgb(255, 21, 21);
+    }
+  }
+}

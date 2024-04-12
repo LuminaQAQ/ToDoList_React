@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* ------- 图标 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 元素移入样式 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 流式居中 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 滚轴 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 输入框 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 数字徽章 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+.context-menu-wrap {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.3rem;
+  width: 10rem;
+  border-radius: 3px;
+  background-color: #222222;
+  color: #ffffff;
+}
+.context-menu-wrap.show {
+  display: block;
+}
+.context-menu-wrap .sg-option {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.context-menu-wrap .sg-option:hover:hover {
+  background-color: rgba(204, 204, 204, 0.1);
+  border-radius: 3px;
+}
+.context-menu-wrap .sg-option.delete-option {
+  color: rgb(255, 21, 21);
+}

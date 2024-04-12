@@ -49,6 +49,7 @@
 
     input {
       @include input-field;
+      border: 0;
     }
 
     .sg-todo-item-icon-add,
