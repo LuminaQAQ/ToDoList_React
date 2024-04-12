@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* ------- 图标 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 元素移入样式 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 流式居中 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 滚轴 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 输入框 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+/* ------- 数字徽章 ------- */
+/* #region  */
+/* #endregion */
+/* ------- end  ------- */
+.sg-radio-wrap {
+  position: relative;
+  margin: 1rem 0;
+  display: flex;
+}
+.sg-radio-wrap label {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.sg-radio-wrap label .radio-circle {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background-color: #171819;
+  border: 1.5px solid #6c6c6c;
+  transition: background-color 0.3s;
+}
+.sg-radio-wrap label .radio-circle::before {
+  content: "";
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: #000000;
+}
+.sg-radio-wrap input {
+  display: none;
+}
+.sg-radio-wrap.on .radio-circle::before {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.sg-radio-wrap.on .radio-circle {
+  background-color: #76b9ed;
+}

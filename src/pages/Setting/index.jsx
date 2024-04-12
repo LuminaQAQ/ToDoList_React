@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import SgRadioItem from '../../components/SgRadioItem';
 import SgSwitchItem from '../../components/SgSwitchItem';
 
 import "./index.css"
@@ -7,12 +8,47 @@ import "./index.css"
 export default function Setting() {
     const navigate = useNavigate();
 
+    const themeOption = [
+        {
+            id: "light",
+            title: "浅色主题",
+            name: "theme",
+            checked: false,
+        },
+        {
+            id: "dark",
+            title: "深色主题",
+            name: "theme",
+            checked: true,
+        },
+        {
+            id: "default",
+            title: "默认主题",
+            name: "theme",
+            checked: false,
+        },
+    ];
+
+    const [theme, setTheme] = useState(themeOption)
+
     function back() {
         navigate(-1);
     }
 
     function getSonData(isChecked) {
-        console.log(isChecked);
+        // console.log(isChecked);
+    }
+
+    function changeTheme(type) {
+        const temp = theme.filter(item => {
+            item.checked = false;
+
+            if (item.id === type) item.checked = true;
+
+            return item;
+        })
+
+        setTheme(temp);
     }
 
     return (
@@ -35,9 +71,9 @@ export default function Setting() {
                     <section className='regular-option'>
                         <h3>常规</h3>
                         <section className='option-list-wrap'>
-                            <SgSwitchItem title="在顶部添加新任务" updateData={getSonData} />
-                            <SgSwitchItem title="将带有星标的任务移至顶部" updateData={getSonData} />
-                            <SgSwitchItem title="在删除前确认" updateData={getSonData} />
+                            <SgSwitchItem row title="在顶部添加新任务" updateData={getSonData} />
+                            <SgSwitchItem row title="将带有星标的任务移至顶部" updateData={getSonData} />
+                            <SgSwitchItem row title="在删除前确认" updateData={getSonData} />
                         </section>
                     </section>
                     <hr />
@@ -50,11 +86,17 @@ export default function Setting() {
                     <section className='theme-option'>
                         <h3>主题</h3>
                         <section className='option-list-wrap'>
-                            <label htmlFor="theme">
-                                <input type="radio" name="theme" /> 浅色主题
-                                <input type="radio" name="theme" /> 深色主题
-                                <input type="radio" name="theme" /> 默认主题
-                            </label>
+                            {
+                                theme.map(item => {
+                                    return (
+                                        <SgRadioItem
+                                            key={item.id}
+                                            {...item}
+                                            onChange={changeTheme}
+                                        />
+                                    )
+                                })
+                            }
                         </section>
                     </section>
                     <hr />
@@ -65,13 +107,11 @@ export default function Setting() {
                     {/* ------ 智能列表 ----- */}
                     {/* #region */}
                     <section className='theme-option'>
-                        <h3>主题</h3>
+                        <h3>智能列表</h3>
                         <section className='option-list-wrap'>
-                            <section>
-                                <div className="icon">icon</div>
-                                <div className="title">title</div>
-                                <div className="switch">switch</div>
-                            </section>
+                            <SgSwitchItem row title="重要" updateData={getSonData} />
+                            <SgSwitchItem row title="全部" updateData={getSonData} />
+                            <SgSwitchItem row title="已完成" updateData={getSonData} />
                         </section>
                     </section>
                     {/* #endregion */}
