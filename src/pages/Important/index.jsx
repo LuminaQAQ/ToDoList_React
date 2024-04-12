@@ -1,14 +1,36 @@
-import React, { Fragment } from 'react'
+import { subscribe } from 'pubsub-js';
+import React, { Fragment, useState } from 'react'
+import { fetchImportantData, setImportantData } from '../../api/api';
+
+import EmptyStatus from '../../components/EmptyStatus'
 import SgTodoItem from '../../components/SgTodoItem'
 
 export default function ImportantView() {
+    const initData = fetchImportantData('importantListData') || [];
+    const [importantList, setImportantList] = useState(initData);
+
+    subscribe('importantListData', function (pubkey, valObj) {
+        const { localKey, data } = valObj;
+        setImportantData(localKey, data);
+        setImportantList(data);
+    });
+
+
+    if (initData.length === 0) {
+        return (
+            <EmptyStatus />
+        )
+    }
 
     return (
         <Fragment>
-            <SgTodoItem important content="学习HTML" />
-            <SgTodoItem important content="学习JS" />
-            <SgTodoItem important content="学习CSS" />
-            <SgTodoItem important content="学习好多知识好多知识好多知识好多知识好多知识好多知识好多知识好多知识好多知识好多知识好多知识好多知识好多知识" />
+            {
+                importantList.map(item => {
+                    return (
+                        <SgTodoItem key={item.id} {...item} />
+                    )
+                })
+            }
         </Fragment>
     )
 }

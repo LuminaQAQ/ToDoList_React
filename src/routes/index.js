@@ -19,12 +19,12 @@ const myRoutes = [
     {
         path: '/',
         meta: { title: 'ToDoList' },
-        element: <Navigate to="/todat" />,
+        element: <Navigate to="/todat?title=我的一天&icon=today" />,
     },
     {
         path: '*',
         meta: { title: 'ToDoList' },
-        element: <Navigate to="/today" />,
+        element: <Navigate to="/today?title=我的一天&icon=today" />,
     },
 
     // 固定

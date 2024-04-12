@@ -24,18 +24,25 @@
 /* #endregion */
 /* ------- end  ------- */
 .context-menu-wrap {
-  display: none;
   position: absolute;
   left: 0;
   top: 0;
+  box-sizing: border-box;
   padding: 0.3rem;
-  width: 10rem;
-  border-radius: 3px;
+  border: 1px solid #6c6c6c;
   background-color: #222222;
   color: #ffffff;
+  scale: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.3s;
+  width: 11rem;
+  border-radius: 3px;
 }
 .context-menu-wrap.show {
-  display: block;
+  scale: 1;
+  opacity: 1;
+  height: auto;
 }
 .context-menu-wrap .sg-option {
   padding: 0.5rem 1rem;

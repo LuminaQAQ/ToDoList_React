@@ -1,14 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useRoutes } from 'react-router-dom'
 
+import { publish } from "pubsub-js"
+
+// 路由表
 import MyRoutes from '../../routes/'
 
+// 一般组件
 import SgPageTitle from '../SgPageTitle'
-
 import SideBar from '../SideBar'
 
 import "./index.css"
 import "../../asserts/style/mobile.css"
+
+// 存储处理
+import { fetchTodayData } from "../../api/api"
 
 export default function MainBody() {
     const routes = useRoutes(MyRoutes);
@@ -44,12 +50,30 @@ export default function MainBody() {
     // #region
     function addList() {
         if (todoText === "") {
-            // return alert("请输入");
             return false;
         } else {
+            // 本地数据处理
+            const localKey = pathname.slice(1) + 'ListData';
+            const data = fetchTodayData(localKey);
+
+            // 时间
+            const date = new Date();
+            const today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+            // 该次数据组合 与 数据本地储存
+            const sgToDo = {
+                id: data.length + 1,
+                date: today,
+                content: todoText,
+            }
+            data.push(sgToDo);
+
+            // 更新页面
+            publish(pathname.slice(1) + 'ListData', { localKey, data });
+
+            // 清空临时的值
             todoInputRef.current.value = '';
             setTodoText('');
-            console.log("add", todoText);
         }
     }
     // #endregion

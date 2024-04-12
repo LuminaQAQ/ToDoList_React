@@ -1,3 +1,4 @@
+// 常规设置
 export const regular = [
     {
         id: 'addNewOnTop',
@@ -13,6 +14,7 @@ export const regular = [
     },
 ];
 
+// 主题
 export const theme = [
     {
         id: "light",
@@ -34,23 +36,36 @@ export const theme = [
     },
 ];
 
-export const fixedList = [
+// 默认的ToDo分组
+export const fixedToDoGroup = [
     {
-        id: 'important',
+        id: 1,
+        key: 'important',
         checked: false,
     },
     {
-        id: 'all',
+        id: 2,
+        key: 'all',
         checked: false,
     },
     {
-        id: 'finished',
+        id: 3,
+        key: 'finished',
         checked: false,
     },
 ];
 
-export const todoGroup = {
-    todayList: [],
+// 默认的ToDo分组的数据
+export const fixedToDoList = {
+    today: [],
+    important: [],
+    all: [],
     finished: [],
     taskList: [],
 }
+
+// 用户的ToDo分组
+export const userToDoGroup = [];
+
+// 用户的ToDo分组的数据
+export const userToDoList = {};

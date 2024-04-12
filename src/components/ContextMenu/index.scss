@@ -1,21 +1,28 @@
 @import "../../asserts/style/default.scss";
 
 .context-menu-wrap {
-  display: none;
   position: absolute;
   left: 0;
   top: 0;
 
+  box-sizing: border-box;
   padding: 0.3rem;
-
-  width: 10rem;
-  border-radius: 3px;
-
+  border: 1px solid $dark-border-color;
   background-color: $dark-bgcolor;
   color: $dark-text-color;
 
+  scale: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.3s;
+
+  width: 11rem;
+  border-radius: 3px;
+
   &.show {
-    display: block;
+    scale: 1;
+    opacity: 1;
+    height: auto;
   }
 
   .sg-option {
