@@ -3,3 +3,5 @@ const configs = {
     theme: [],
     fixdList: [],
 };
+
+export default configs;
