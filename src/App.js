@@ -17,7 +17,7 @@ export default function App() {
             return item.path === pathname;
         })
 
-        document.title = curPage.meta.title;
+        document.title = curPage?.meta.title || "ToDoList";
     }, [pathname])
 
     return (
