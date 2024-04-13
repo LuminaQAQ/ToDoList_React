@@ -15,6 +15,7 @@ import "../../asserts/style/mobile.css"
 
 // 存储处理
 import { fetchTodayData } from "../../api/api"
+import { nanoid } from 'nanoid'
 
 export default function MainBody() {
     const routes = useRoutes(MyRoutes);
@@ -62,14 +63,15 @@ export default function MainBody() {
 
             // 该次数据组合 与 数据本地储存
             const sgToDo = {
-                id: data.length + 1,
+                id: nanoid(),
                 date: today,
                 content: todoText,
+                isImportant: pathname === "/important" ? true : false,
             }
             data.push(sgToDo);
 
             // 更新页面
-            publish(pathname.slice(1) + 'ListData', { localKey, data });
+            publish(pathname.slice(1) + 'ListData', data);
             publish('sidebar-reflash')
 
             // 清空临时的值

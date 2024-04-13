@@ -13,10 +13,12 @@ export default function TodayView() {
     const initData = fetchTodayData('todayListData') || [];
     const [todayList, setTodayList] = useState(initData);
 
-    subscribe('todayListData', function (pubkey, valObj) {
-        const { localKey, data } = valObj;
-        setTodayData(localKey, data);
-        setTodayList(data);
+    subscribe('todayListData', function (pubkey, val) {
+        // 实际的数据
+        setTodayData(val);
+
+        // 页面的动态数据
+        setTodayList(val);
     });
 
     if (initData.length === 0) {

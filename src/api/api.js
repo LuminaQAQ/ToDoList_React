@@ -4,6 +4,9 @@ import {
     setItem,
 } from "../utils/localStroge"
 
+// pubsub
+import { publish } from "pubsub-js"
+
 // 配置项
 import {
     regular,
@@ -13,6 +16,10 @@ import {
     fixedToDoList,
     userToDoGroup,
 } from "../configs/config"
+
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
 
 // ------- "常规设置"处理 -------
 // #region
@@ -55,6 +62,36 @@ export function setfixedToDoGroupSetting(val) {
 // <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
 
 
+// ------- "上下文菜单"功能 -------
+// #region
+export function deleteToDo(localkey, id) {
+    const temp = getItem(localkey);
+    const res = temp.filter(item => {
+        return item.id !== id
+    })
+
+    switch (localkey) {
+        case 'todayListData':
+            publish('todayListData', res);
+            break;
+        case 'importantListData':
+            publish('importantListData', res);
+            break;
+        case 'taskListListData':
+            publish('taskListListData', res);
+            break;
+        default:
+            break;
+    }
+}
+// #endregion
+// ------- end -------
+
+
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+
 // ------- "侧边栏"数据处理 -------
 // #region
 export function fetchFixedToDoGroup(key) {
@@ -81,13 +118,13 @@ export function setFixedToDoGroup(key, val) {
 // #region
 
 // 获取"我的一天"数据
-export const fetchTodayData = (key) => {
-    return getItem(key);
+export const fetchTodayData = () => {
+    return getItem('todayListData');
 }
 
 // 更新"我的一天"数据
-export const setTodayData = (key, val) => {
-    return setItem(key, val);
+export const setTodayData = (val) => {
+    return setItem('todayListData', val);
 }
 
 // #endregion
@@ -96,14 +133,14 @@ export const setTodayData = (key, val) => {
 // ------- "重要"数据处理 -------
 // #region
 
-// 获取"我的一天"数据
-export const fetchImportantData = (key) => {
-    return getItem(key);
+// 获取"重要"数据
+export const fetchImportantData = () => {
+    return getItem('importantListData');
 }
 
-// 更新"我的一天"数据
-export const setImportantData = (key, val) => {
-    return setItem(key, val);
+// 更新"重要"数据
+export const setImportantData = (val) => {
+    return setItem('importantListData', val);
 }
 
 // #endregion
@@ -113,13 +150,13 @@ export const setImportantData = (key, val) => {
 // #region
 
 // 获取"全部"数据
-export const fetchAllTaskListData = (key) => {
-    return getItem(key);
+export const fetchAllTaskListData = () => {
+    return getItem('allTaskListData');
 }
 
 // 更新"全部"数据
-export const setAllTaskListData = (key, val) => {
-    return setItem(key, val);
+export const setAllTaskListData = (val) => {
+    return setItem('allTaskListData', val);
 }
 // #endregion
 // ------- end -------
@@ -143,13 +180,13 @@ export const setFinishedListData = (key, val) => {
 // #region
 
 // 获取"任务"数据
-export const fetchTaskListData = (key) => {
-    return getItem(key);
+export const fetchTaskListData = () => {
+    return getItem('taskListListData');
 }
 
 // 更新"任务"数据
-export const setTaskListData = (key, val) => {
-    return setItem(key, val);
+export const setTaskListData = (val) => {
+    return setItem('taskListListData', val);
 }
 // #endregion
 // ------- end -------

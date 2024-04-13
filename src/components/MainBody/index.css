@@ -26,6 +26,8 @@
 @import "../../asserts/style/mobile.css";
 .todolist-main-wrap {
   background-image: url("../../asserts/imgs/MainBody/bg1.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
   /* ------- root ------- */
   /* #region  */
   position: relative;
@@ -70,7 +72,8 @@
 .todolist-main-wrap .add-task-wrap {
   display: flex;
   align-items: center;
-  background-color: #070e12;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
   padding: 1rem;
   margin: 0.25rem 0rem;
 }

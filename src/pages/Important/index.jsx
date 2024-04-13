@@ -10,9 +10,8 @@ export default function ImportantView() {
     const initData = fetchImportantData('importantListData') || [];
     const [importantList, setImportantList] = useState(initData);
 
-    subscribe('importantListData', function (pubkey, valObj) {
-        const { localKey, data } = valObj;
-        setImportantData(localKey, data);
+    subscribe('importantListData', function (pubkey, data) {
+        setImportantData(data);
         setImportantList(data);
     });
 
@@ -28,7 +27,7 @@ export default function ImportantView() {
             {
                 importantList.map(item => {
                     return (
-                        <SgTodoItem key={item.id} {...item} />
+                        <SgTodoItem important key={item.id} {...item} />
                     )
                 })
             }

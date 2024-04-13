@@ -11,9 +11,8 @@ export default function TaskListView() {
     const [allTask, setAllTask] = useState(initData);
 
 
-    subscribe('allTaskListData', function (pubkey, valObj) {
-        const { localKey, data } = valObj;
-        setAllTaskListData(localKey, data);
+    subscribe('allTaskListData', function (pubkey, data) {
+        setAllTaskListData(data);
         setAllTask(data);
     });
 

@@ -70,7 +70,7 @@
   /* #region  */
   .todolist-main-wrap {
     padding-bottom: 3rem;
-    width: calc(100% - 3rem);
+    width: calc(100% - 4rem);
   }
   .todolist-main-wrap .mobile-nav-placeholder-wrap {
     visibility: visible !important;
