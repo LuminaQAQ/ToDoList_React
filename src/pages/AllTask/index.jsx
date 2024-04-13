@@ -1,11 +1,38 @@
-import React from 'react'
+import React, { useState, Fragment } from 'react'
+import { subscribe } from 'pubsub-js';
 
+import { fetchAllTaskListData, setAllTaskListData } from '../../api/api';
+
+import EmptyStatus from '../../components/EmptyStatus';
 import SgTodoItem from "../../components/SgTodoItem"
 
-export default function AllTaskView() {
+export default function TaskListView() {
+    const initData = fetchAllTaskListData('allTaskListData') || [];
+    const [allTask, setAllTask] = useState(initData);
+
+
+    subscribe('allTaskListData', function (pubkey, valObj) {
+        const { localKey, data } = valObj;
+        setAllTaskListData(localKey, data);
+        setAllTask(data);
+    });
+
+
+    if (initData.length === 0) {
+        return (
+            <EmptyStatus />
+        )
+    }
+
     return (
-        <div>
-            <SgTodoItem content="全部" />
-        </div>
+        <Fragment>
+            {
+                allTask.map(item => {
+                    return (
+                        <SgTodoItem key={item.id} {...item} />
+                    )
+                })
+            }
+        </Fragment>
     )
 }

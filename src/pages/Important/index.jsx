@@ -1,5 +1,6 @@
-import { subscribe } from 'pubsub-js';
 import React, { Fragment, useState } from 'react'
+import { subscribe } from 'pubsub-js';
+
 import { fetchImportantData, setImportantData } from '../../api/api';
 
 import EmptyStatus from '../../components/EmptyStatus'

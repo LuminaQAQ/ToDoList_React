@@ -59,7 +59,7 @@ export const fixedToDoGroup = [
 export const fixedToDoList = {
     today: [],
     important: [],
-    all: [],
+    allTask: [],
     finished: [],
     taskList: [],
 }

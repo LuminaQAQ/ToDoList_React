@@ -39,7 +39,7 @@ const myRoutes = [
         element: <ImportantView />,
     },
     {
-        path: '/all',
+        path: '/allTask',
         meta: { title: '所有' },
         element: <AllTaskView />,
     },
@@ -49,7 +49,7 @@ const myRoutes = [
         element: <FinishedView />,
     },
     {
-        path: '/tasklist',
+        path: '/taskList',
         meta: { title: '任务' },
         element: <TaskView />,
     },

@@ -48,13 +48,52 @@ export const setImportantData = (key, val) => {
 // ------- "全部"数据处理 -------
 // #region
 
+// 获取"全部"数据
+export const fetchAllTaskListData = (key) => {
+    return getItem(key);
+}
+
+// 更新"全部"数据
+export const setAllTaskListData = (key, val) => {
+    return setItem(key, val);
+}
+// #endregion
+// ------- end -------
+
+// ------- "已完成"数据处理 -------
+// #region
+
+// 获取"已完成"数据
+export const fetchFinishedListData = (key) => {
+    return getItem(key);
+}
+
+// 更新"已完成"数据
+export const setFinishedListData = (key, val) => {
+    return setItem(key, val);
+}
+// #endregion
+// ------- end -------
+
+// ------- "任务"数据处理 -------
+// #region
+
+// 获取"任务"数据
+export const fetchTaskListData = (key) => {
+    return getItem(key);
+}
+
+// 更新"任务"数据
+export const setTaskListData = (key, val) => {
+    return setItem(key, val);
+}
 // #endregion
 // ------- end -------
 
 // ------- 初始化本地储存 -------
 // #region
 export const initLocalData = () => {
-    if (getItem('isInit')) return false;
+    // if (getItem('isInit')) return false;
 
     // 常规设置
     setItem('regular', regular);
