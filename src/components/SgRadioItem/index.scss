@@ -46,6 +46,14 @@
     display: none;
   }
 
+  input:checked + label .radio-circle {
+    background-color: $check-on-bgcolor;
+    &::before {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+  }
+
   &.on {
     .radio-circle::before {
       opacity: 1;

@@ -29,7 +29,7 @@ $check-off-button: #cdcdce;
 /* #region  */
 @mixin element-hover {
   &:hover {
-    background-color: rgba(204, 204, 204, 0.1);
+    background-color: rgb(69, 69, 69);
     border-radius: 3px;
   }
 }

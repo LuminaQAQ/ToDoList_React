@@ -4,20 +4,22 @@ import "./index.css"
 
 export default function SgRadioItm(props) {
 
-    const { id, name, title, checked, onChange } = props;
+    const { ownership, id, name, title, checked, onChange } = props;
 
     function commitChangeValue(e) {
-        onChange(id);
+        const id = e.target.id;
+
+        onChange(ownership, id, true);
     }
 
     return (
-        <section className={checked ? 'sg-radio-wrap on' : 'sg-radio-wrap'}>
+        <section className="sg-radio-wrap">
             <input
                 type="radio"
                 name={name}
                 id={id}
-                checked={checked}
                 onChange={commitChangeValue}
+                defaultChecked={checked}
             />
             <label htmlFor={id}>
                 <section className='radio-circle'></section>

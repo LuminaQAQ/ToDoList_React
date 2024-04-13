@@ -70,6 +70,7 @@ export default function MainBody() {
 
             // 更新页面
             publish(pathname.slice(1) + 'ListData', { localKey, data });
+            publish('sidebar-reflash')
 
             // 清空临时的值
             todoInputRef.current.value = '';

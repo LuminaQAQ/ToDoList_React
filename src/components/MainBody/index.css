@@ -25,6 +25,7 @@
 /* ------- end  ------- */
 @import "../../asserts/style/mobile.css";
 .todolist-main-wrap {
+  background-image: url("../../asserts/imgs/MainBody/bg1.jpg");
   /* ------- root ------- */
   /* #region  */
   position: relative;

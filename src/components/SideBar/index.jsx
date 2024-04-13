@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { subscribe } from 'pubsub-js'
 
 // css
 import "./index.css"
@@ -8,49 +10,30 @@ import SgCategoryItem from '../SgCategoryItem'
 
 // 图标
 import searchDarkIcon from '../../asserts/imgs/SideBar/search_dark.png'
-// import searchLightIcon from '../../asserts/imgs/SideBar/search_light.png'
 import createGroupIcon from '../../asserts/imgs/SideBar/create_group.png'
 import SgUserCategoryItem from '../SgUserCategoryItem'
 
-export default function SideBar() {
-    const fixedCategories = [
-        {
-            key: "001",
-            to: '/today?title=我的一天&icon=today',
-            icon: 'today',
-            title: '我的一天',
-            nums: 1,
-        },
-        {
-            key: "002",
-            to: '/important?title=重要&icon=important',
-            icon: 'important',
-            title: '重要',
-            nums: 0,
-        },
-        {
-            key: "003",
-            to: '/allTask?title=全部&icon=allTask',
-            icon: 'allTask',
-            title: '全部',
-            nums: 0,
-        },
-        {
-            key: "004",
-            to: '/finished?title=已完成&icon=finished',
-            icon: 'finished',
-            title: '已完成',
-            nums: 0,
-        },
-        {
-            key: "005",
-            to: '/taskList?title=任务&icon=tasklist',
-            icon: 'tasklist',
-            title: '任务',
-            nums: 0,
-        },
-    ];
+// 配置项
+import { fetchFixedToDoGroup } from '../../api/api'
+import { getItem, setItem } from '../../utils/localStroge'
 
+export default function SideBar() {
+
+    const store = fetchFixedToDoGroup('fixedToDoGroup');
+    const [fixedCategories, setFixedCategories] = useState(store);
+
+    subscribe('sidebar-reflash', function () {
+        const res = store.map(item => {
+            const lcoalkey = item.icon + 'ListData';
+            const store = getItem(lcoalkey);
+            item.nums = store.length;
+
+            return item;
+        })
+
+        setItem('fixedToDoGroup', res);
+        setFixedCategories(res);
+    })
 
     return (
         <section className='todolist-sidebar-wrap'>
@@ -84,9 +67,9 @@ export default function SideBar() {
             {/* #region */}
             <section className='fixed-categories'>
                 {
-                    fixedCategories.map(item => {
+                    fixedCategories.map((item, key) => {
                         return (
-                            <SgCategoryItem {...item} />
+                            <SgCategoryItem key={key} {...item} />
                         )
                     })
                 }

@@ -28,9 +28,10 @@
   background-color: #373737;
   padding: 1rem;
   margin: 0.25rem 0rem;
+  border-radius: 5px;
 }
 .sg-todo-item-wrap:hover {
-  background-color: rgba(204, 204, 204, 0.1);
+  background-color: rgb(69, 69, 69);
   border-radius: 3px;
 }
 .sg-todo-item-wrap .sg-todo-item-icon-check {

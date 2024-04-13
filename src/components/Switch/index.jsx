@@ -6,6 +6,6 @@ export default function Switch(props) {
     const { isChecked } = props;
 
     return (
-        <section className={isChecked === '开' ? 'switch-wrap on' : 'switch-wrap'}></section>
+        <section className={isChecked ? 'switch-wrap on' : 'switch-wrap'}></section>
     )
 }

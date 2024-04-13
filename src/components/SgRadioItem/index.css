@@ -60,6 +60,13 @@
 .sg-radio-wrap input {
   display: none;
 }
+.sg-radio-wrap input:checked + label .radio-circle {
+  background-color: #76b9ed;
+}
+.sg-radio-wrap input:checked + label .radio-circle::before {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
 .sg-radio-wrap.on .radio-circle::before {
   opacity: 1;
   transition: opacity 0.3s;

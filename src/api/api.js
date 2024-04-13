@@ -8,10 +8,74 @@ import {
 import {
     regular,
     theme,
+    fixed,
     fixedToDoGroup,
     fixedToDoList,
     userToDoGroup,
 } from "../configs/config"
+
+// ------- "常规设置"处理 -------
+// #region
+export function fetchRegularSetting() {
+    return getItem('regular');
+}
+
+export function setRegularSetting(val) {
+    return setItem('regular', val);
+}
+// #endregion
+// ------- end -------
+
+// ------- "主题设置"处理 -------
+// #region
+export function fetchThemeSetting() {
+    return getItem('theme');
+}
+
+export function setThemeSetting(val) {
+    return setItem('theme', val);
+}
+// #endregion
+// ------- end -------
+
+// ------- "智能列表设置"处理 -------
+// #region
+export function fetchfixedToDoGroupSetting() {
+    return getItem('fixed');
+}
+
+export function setfixedToDoGroupSetting(val) {
+    return setItem('fixed', val);
+}
+// #endregion
+// ------- end -------
+
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+
+
+// ------- "侧边栏"数据处理 -------
+// #region
+export function fetchFixedToDoGroup(key) {
+    return getItem(key);
+}
+
+export function setFixedToDoGroup(key, val) {
+    return setItem(key, val);
+}
+
+// export function searchToDoList(key) {
+//     console.log(key);
+// }
+// #endregion
+// ------- end -------
+
+
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+
 
 // ------- "我的一天"数据处理 -------
 // #region
@@ -90,16 +154,25 @@ export const setTaskListData = (key, val) => {
 // #endregion
 // ------- end -------
 
+
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
+
+
 // ------- 初始化本地储存 -------
 // #region
 export const initLocalData = () => {
-    // if (getItem('isInit')) return false;
+    if (getItem('isInit')) return false;
 
     // 常规设置
     setItem('regular', regular);
 
     // 主题设置
     setItem('theme', theme);
+
+    // 智能列表
+    setItem('fixed', fixed);
 
     // 默认显示的ToDo分组
     setItem('fixedToDoGroup', fixedToDoGroup);

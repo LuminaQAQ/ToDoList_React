@@ -6,7 +6,7 @@
   content: url("../imgs/SideBar/today.png");
 }
 
-.tasklist-icon {
+.taskList-icon {
   content: url("../imgs/SideBar/task-dark.png");
 }
 
@@ -24,4 +24,8 @@
 
 .allTask-icon {
   content: url("../imgs/SideBar/allTask.png");
+}
+
+.empty-icon {
+  content: url("../imgs/MainBody/empty-status.png");
 }

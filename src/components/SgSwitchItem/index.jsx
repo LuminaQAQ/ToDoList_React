@@ -4,14 +4,15 @@ import Switch from "../Switch";
 import "./index.css"
 
 export default function SgSwitchItem(props) {
-    // console.log(props);
-    const { title, updateData, row } = props;
+    const { title, updateData, row, ownership, checked } = props;
 
-    const [isCheckText, setIsCheckText] = useState('关');
+    const [isChecked, setIsChecked] = useState(checked);
 
-    function isChecked(e) {
-        updateData(e.target.checked);
-        setIsCheckText(e.target.checked ? '开' : '关');
+    function isCheckedHandler(e) {
+        const id = e.target.id.split('-')[1];
+
+        updateData(ownership, id, !isChecked);
+        setIsChecked(!isChecked)
     }
 
     return (
@@ -21,11 +22,15 @@ export default function SgSwitchItem(props) {
             </section>
             <section className='sg-switch-item-title'>
                 <label htmlFor={`checkbox-${title}`}>
-                    <Switch isChecked={isCheckText} />
-                    <span>{isCheckText}</span>
-                    <input id={`checkbox-${title}`} type="checkbox" onChange={isChecked} />
+                    <Switch isChecked={isChecked} />
+                    <span>{isChecked ? '开' : '关'}</span>
+                    <input
+                        type="checkbox"
+                        id={`checkbox-${title}`}
+                        onChange={isCheckedHandler}
+                        checked={isChecked}
+                    />
                 </label>
-
             </section>
         </div>
     )
