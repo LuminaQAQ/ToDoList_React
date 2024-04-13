@@ -11,10 +11,8 @@ import { publish } from "pubsub-js"
 import {
     regular,
     theme,
-    fixed,
     fixedToDoGroup,
-    fixedToDoList,
-    userToDoGroup,
+    toDoList,
 } from "../configs/config"
 
 // <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
@@ -208,19 +206,11 @@ export const initLocalData = () => {
     // 主题设置
     setItem('theme', theme);
 
-    // 智能列表
-    setItem('fixed', fixed);
-
     // 默认显示的ToDo分组
     setItem('fixedToDoGroup', fixedToDoGroup);
 
-    // 默认ToDo分组的数据
-    Object.entries(fixedToDoList).forEach(item => {
-        setItem(item[0] + 'ListData', item[1]);
-    })
-
-    // 用户自定义的ToDo分组
-    setItem('userToDoGroup', userToDoGroup);
+    // 初始化
+    setItem('toDoList', toDoList);
 
     // 是否执行过这个初始化函数
     setItem('isInit', true)

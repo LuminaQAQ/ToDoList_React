@@ -42,26 +42,7 @@ export const theme = [
     },
 ];
 
-// 显示默认的分组的设置, 智能分组
-export const fixed = [
-    {
-        ownership: 'fixed',
-        title: '重要',
-        checked: false,
-    },
-    {
-        ownership: 'fixed',
-        title: '全部',
-        checked: false,
-    },
-    {
-        ownership: 'fixed',
-        title: '已完成',
-        checked: false,
-    },
-]
-
-// 默认的ToDo分组
+// 默认的ToDo分组 及 智能分组设置
 export const fixedToDoGroup = [
     {
         id: 1,
@@ -69,7 +50,6 @@ export const fixedToDoGroup = [
         title: '我的一天',
         to: '/today?title=我的一天&icon=today',
         nums: 0,
-        checked: false,
         ownership: 'fixed',
     },
     {
@@ -78,7 +58,8 @@ export const fixedToDoGroup = [
         icon: 'important',
         title: '重要',
         nums: 0,
-        checked: false,
+        checked: true,
+        ownership: 'fixed',
     },
     {
         id: 3,
@@ -86,7 +67,8 @@ export const fixedToDoGroup = [
         icon: 'allTask',
         title: '全部',
         nums: 0,
-        checked: false,
+        checked: true,
+        ownership: 'fixed',
     },
     {
         id: 4,
@@ -94,7 +76,8 @@ export const fixedToDoGroup = [
         icon: 'finished',
         title: '已完成',
         nums: 0,
-        checked: false,
+        isShow: true,
+        ownership: 'fixed',
     },
     {
         id: 5,
@@ -102,21 +85,9 @@ export const fixedToDoGroup = [
         icon: 'taskList',
         title: '任务',
         nums: 0,
-        checked: false,
+        ownership: 'fixed',
     },
 ];
 
-// 默认的ToDo分组的数据
-export const fixedToDoList = {
-    today: [],
-    important: [],
-    allTask: [],
-    finished: [],
-    taskList: [],
-}
-
-// 用户的ToDo分组
-export const userToDoGroup = [];
-
-// 用户的ToDo分组的数据
-export const userToDoList = {};
+// ToDo数据
+export const toDoList = [];

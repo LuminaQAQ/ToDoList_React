@@ -1,18 +1,20 @@
 import React, { useState, Fragment } from 'react'
-import { subscribe } from 'pubsub-js';
+import { useLocation } from 'react-router-dom';
 
-import { fetchAllTaskListData, setAllTaskListData } from '../../api/api';
+import { subscribe } from 'pubsub-js';
+import { fetchData } from '../../utils/handleData';
 
 import EmptyStatus from '../../components/EmptyStatus';
 import SgTodoItem from "../../components/SgTodoItem"
 
 export default function TaskListView() {
-    const initData = fetchAllTaskListData('allTaskListData') || [];
+    const { pathname } = useLocation();
+
+    const initData = fetchData(pathname.slice(1));
     const [allTask, setAllTask] = useState(initData);
 
 
-    subscribe('allTaskListData', function (pubkey, data) {
-        setAllTaskListData(data);
+    subscribe('allTask', function (pubkey, data) {
         setAllTask(data);
     });
 

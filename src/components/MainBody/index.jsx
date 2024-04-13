@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useRoutes } from 'react-router-dom'
 
-import { publish } from "pubsub-js"
-
 // 路由表
 import MyRoutes from '../../routes/'
 
@@ -14,8 +12,7 @@ import "./index.css"
 import "../../asserts/style/mobile.css"
 
 // 存储处理
-import { fetchTodayData } from "../../api/api"
-import { nanoid } from 'nanoid'
+import { setData } from '../../utils/handleData'
 
 export default function MainBody() {
     const routes = useRoutes(MyRoutes);
@@ -50,34 +47,13 @@ export default function MainBody() {
     // ------- 添加ToDo -------
     // #region
     function addList() {
-        if (todoText === "") {
-            return false;
-        } else {
-            // 本地数据处理
-            const localKey = pathname.slice(1) + 'ListData';
-            const data = fetchTodayData(localKey);
+        if (todoText === "") return false;
 
-            // 时间
-            const date = new Date();
-            const today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        // 清空输入框的值
+        todoInputRef.current.value = '';
+        setTodoText('');
 
-            // 该次数据组合 与 数据本地储存
-            const sgToDo = {
-                id: nanoid(),
-                date: today,
-                content: todoText,
-                isImportant: pathname === "/important" ? true : false,
-            }
-            data.push(sgToDo);
-
-            // 更新页面
-            publish(pathname.slice(1) + 'ListData', data);
-            publish('sidebar-reflash')
-
-            // 清空临时的值
-            todoInputRef.current.value = '';
-            setTodoText('');
-        }
+        return setData(todoText, pathname.slice(1));
     }
     // #endregion
     // ------- end -------
@@ -137,8 +113,6 @@ export default function MainBody() {
             {/* ------ 添加todo ----- */}
             {/* #region */}
             <section className='add-task-wrap'>
-                {/* <section className=''>
-                </section> */}
                 <input
                     ref={todoInputRef}
                     className='sg-todo-item-text'
@@ -155,6 +129,7 @@ export default function MainBody() {
             </section>
             {/* #endregion */}
             {/* --------End------ */}
+
         </section >
     )
 }
