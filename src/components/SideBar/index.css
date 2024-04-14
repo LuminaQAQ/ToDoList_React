@@ -141,7 +141,7 @@
   padding: 0.5rem;
 }
 .todolist-sidebar-wrap .create-new-wrap .create-new-list:hover {
-  background-color: rgba(204, 204, 204, 0.1);
+  background-color: rgb(69, 69, 69);
   border-radius: 3px;
 }
 .todolist-sidebar-wrap .create-new-wrap .create-new-list-add-icon {
@@ -160,6 +160,6 @@
   height: 100%;
 }
 .todolist-sidebar-wrap .create-new-wrap .create-new-group:hover {
-  background-color: rgba(204, 204, 204, 0.1);
+  background-color: rgb(69, 69, 69);
   border-radius: 3px;
 }

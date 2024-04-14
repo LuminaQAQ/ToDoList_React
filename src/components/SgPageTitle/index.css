@@ -76,7 +76,7 @@
   height: 100%;
 }
 .header-title-wrap .page-header-menu-wrap .page-header-menu:hover {
-  background-color: rgba(204, 204, 204, 0.1);
+  background-color: rgb(69, 69, 69);
   border-radius: 3px;
 }
 .header-title-wrap .page-header-menu-wrap .page-header-menu-tip {

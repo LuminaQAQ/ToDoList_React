@@ -36,7 +36,6 @@
   opacity: 0;
   overflow: hidden;
   transition: opacity 0.3s;
-  width: 11rem;
   border-radius: 3px;
 }
 .context-menu-wrap.show {
@@ -49,7 +48,7 @@
   cursor: pointer;
 }
 .context-menu-wrap .sg-option:hover:hover {
-  background-color: rgba(204, 204, 204, 0.1);
+  background-color: rgb(69, 69, 69);
   border-radius: 3px;
 }
 .context-menu-wrap .sg-option.delete-option {

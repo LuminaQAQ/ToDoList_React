@@ -1,17 +1,19 @@
 import React, { Fragment, useState } from 'react'
+import { useLocation } from 'react-router-dom';
+
 import { subscribe } from 'pubsub-js';
 
-import { fetchImportantData, setImportantData } from '../../api/api';
 
 import EmptyStatus from '../../components/EmptyStatus'
 import SgTodoItem from '../../components/SgTodoItem'
+import { fetchData } from '../../utils/handleData';
 
 export default function ImportantView() {
-    const initData = fetchImportantData('importantListData') || [];
+    const { pathname } = useLocation();
+    const initData = fetchData(pathname.slice(1));
     const [importantList, setImportantList] = useState(initData);
 
-    subscribe('importantListData', function (pubkey, data) {
-        setImportantData(data);
+    subscribe('important', function (pubkey, data) {
         setImportantList(data);
     });
 
@@ -27,7 +29,7 @@ export default function ImportantView() {
             {
                 importantList.map(item => {
                     return (
-                        <SgTodoItem important key={item.id} {...item} />
+                        <SgTodoItem pathname={pathname.slice(1)} key={item.id} {...item} />
                     )
                 })
             }

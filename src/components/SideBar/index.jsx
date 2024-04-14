@@ -7,33 +7,50 @@ import "./index.css"
 
 // 组件
 import SgCategoryItem from '../SgCategoryItem'
+import SgUserCategoryItem from '../SgUserCategoryItem'
 
 // 图标
 import searchDarkIcon from '../../asserts/imgs/SideBar/search_dark.png'
 import createGroupIcon from '../../asserts/imgs/SideBar/create_group.png'
-import SgUserCategoryItem from '../SgUserCategoryItem'
+import defaultUserAvatar from "../../asserts/imgs/MainBody/default_avatar.png";
 
 // 配置项
-import { fetchFixedToDoGroup } from '../../api/api'
-import { getItem, setItem } from '../../utils/localStroge'
+import { fetchSidebarData } from '../../utils/handleData'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 export default function SideBar() {
-
-    const store = fetchFixedToDoGroup('fixedToDoGroup');
+    const store = fetchSidebarData();
     const [fixedCategories, setFixedCategories] = useState(store);
 
-    subscribe('sidebar-reflash', function () {
-        const res = store.map(item => {
-            const lcoalkey = item.icon + 'ListData';
-            const store = getItem(lcoalkey);
-            item.nums = store.length;
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
 
-            return item;
-        })
+    const [search, setSearch] = useSearchParams();
+    const [searchInputText, setSearchInputText] = useState('');
 
-        setItem('fixedToDoGroup', res);
-        setFixedCategories(res);
+    try {
+        const arr = [search, searchInputText];
+        arr.filter()
+    } catch (error) { }
+
+    subscribe('sidebar-reflash', function (pubkey, data) {
+        setFixedCategories(data);
     })
+
+    function searchTodo(e) {
+        setSearchInputText(e.target.value);
+
+        if (e.target.value === "" && pathname === "/search")
+            return navigate(`/`);
+
+        if (e.keyCode === 8 && e.target.value === "" && pathname !== "/search")
+            return false;
+
+        if (e.target.value !== "" && pathname !== "/search")
+            return navigate(`/search?keywords=${e.target.value}`);
+
+        if (pathname === "/search") setSearch(`keywords=${e.target.value}`);
+    }
 
     return (
         <section className='todolist-sidebar-wrap'>
@@ -41,10 +58,12 @@ export default function SideBar() {
             {/* ------ 用户信息区域 ----- */}
             {/* #region */}
             <section className='userinfo-wrap'>
-                <section className='userinfo-avatar today-icon'></section>
+                <section className='userinfo-avatar'>
+                    <img src={defaultUserAvatar} alt="" />
+                </section>
 
                 <section className='userinfo-username'>
-                    username
+                    To Do 清单
                 </section>
             </section>
             {/* #endregion */}
@@ -54,7 +73,11 @@ export default function SideBar() {
             {/* #region */}
             <section className='search-wrap'>
                 <div className="search-main">
-                    <input type="text" placeholder='搜索' />
+                    <input
+                        type="text"
+                        placeholder='搜索'
+                        onKeyUp={searchTodo}
+                    />
                 </div>
                 <section className='search-icon'>
                     <img src={searchDarkIcon} alt="" />

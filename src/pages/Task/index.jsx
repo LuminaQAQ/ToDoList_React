@@ -12,6 +12,7 @@ export default function TaskListView() {
   const initData = fetchData(pathname.slice(1));
   const [taskList, setTaskList] = useState(initData);
 
+
   subscribe('taskList', function (pubkey, data) {
     setTaskList(data);
   });
@@ -28,7 +29,7 @@ export default function TaskListView() {
       {
         taskList.map(item => {
           return (
-            <SgTodoItem key={item.id} {...item} />
+            <SgTodoItem pathname={pathname.slice(1)} key={item.id} {...item} />
           )
         })
       }

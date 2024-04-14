@@ -1,25 +1,26 @@
 import React, { Fragment, useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 import { subscribe } from "pubsub-js"
 
 import SgTodoItem from "../../components/SgTodoItem"
 
 // 获取"我的一天"数据
-import { fetchTodayData, setTodayData } from '../../api/api'
 import EmptyStatus from '../../components/EmptyStatus';
 
+import { fetchData } from '../../utils/handleData';
 
 export default function TodayView() {
-    const initData = fetchTodayData('todayListData') || [];
+    const { pathname } = useLocation();
+
+    const initData = fetchData(pathname.slice(1));
     const [todayList, setTodayList] = useState(initData);
 
-    subscribe('todayListData', function (pubkey, val) {
-        // 实际的数据
-        setTodayData(val);
-
-        // 页面的动态数据
-        setTodayList(val);
+    subscribe('today', function (pubkey, data) {
+        setTodayList(data);
     });
+
+
 
     if (initData.length === 0) {
         return (
@@ -32,7 +33,7 @@ export default function TodayView() {
             {
                 todayList.map(item => {
                     return (
-                        <SgTodoItem key={item.id} {...item} />
+                        <SgTodoItem pathname={pathname.slice(1)} key={item.id} {...item} />
                     )
                 })
             }

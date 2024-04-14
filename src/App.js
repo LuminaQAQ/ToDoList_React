@@ -14,20 +14,31 @@ import SideBar from './components/SideBar'
 import myRoutes from './routes'
 
 // 初始化本地储存
-import { deleteToDo, initLocalData } from './api/api'
+import { initLocalData } from './api/api'
+import { alterTodoFinishedData, alterTodoImportantData, alterTodoTodayData, deleteData, fetchData } from './utils/handleData';
 initLocalData();
 
 
-const tempMenu = {
-    localkey: '',
+let tempMenu = {
+    route: '',
     id: '',
-}
+    type: '',
+    isFinished: false,
+    isImportant: false,
+};
+
+
 // ------- 右键开启菜单事件 -------
 // #region
 window.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 
     const menu = document.querySelector('.context-menu-wrap');
+    const tempNode = menu.querySelectorAll('.context-menu-basic-wrap .sg-option');
+    const addToToday = tempNode[0];
+    const addToImportant = tempNode[1];
+    const addToFinished = tempNode[2];
+
     if (
         e.target.className === "sg-todo-item-wrap" ||
         e.target.className === "sg-todo-item-text" ||
@@ -38,11 +49,40 @@ window.addEventListener('contextmenu', function (e) {
 
         menu.className = "context-menu-wrap show";
 
-        tempMenu.id = e.target.id;
+        let temp = fetchData('allTask');
+        temp.filter(item => {
+            if (item.id === e.target.id) {
+                tempMenu.id = item.id;
+                tempMenu.type = item.type;
+                tempMenu.isFinished = item.isFinished;
+                tempMenu.isImportant = item.isImportant;
 
-        // console.log(e.target.id, tempMenu.localkey);
-        // const a = getItem(tempMenu.localkey);
-        // console.log(a);
+
+                // ------- 右键菜单选项改变 -------
+                // #region
+
+                // 恢复菜单默认值
+                addToToday.style.display = "block";
+                addToFinished.innerHTML = '标记为"已完成"';
+                addToImportant.innerHTML = '标记为"重要"';
+                addToToday.innerHTML = '标记为"我的一天"';
+
+                // 某些情况下菜单选项隐藏
+                if (tempMenu.route === "finished")
+                    addToToday.style.display = "none";
+
+                // 某些情况下菜单选项名字改变
+                if (tempMenu.isFinished) addToFinished.innerHTML = '标记为"未完成"';
+                if (tempMenu.isImportant) addToImportant.innerHTML = '删除"重要"标记';
+                if (tempMenu.route === "today") addToToday.innerHTML = '删除"我的一天"标记';
+
+
+                // #endregion
+                // ------- end -------
+            }
+
+            return item;
+        })
     } else {
         menu.className = "context-menu-wrap";
     }
@@ -61,23 +101,22 @@ window.addEventListener('click', function (e) {
 
         switch (option) {
             case 'today':
-                console.log(option);
+                alterTodoTodayData(tempMenu.route, tempMenu.id, tempMenu.type)
                 break;
             case 'important':
-                console.log(option);
+                alterTodoImportantData(tempMenu.route, tempMenu.id, !tempMenu.isImportant);
                 break;
             case 'finished':
-                console.log(option);
+                alterTodoFinishedData(tempMenu.route, tempMenu.id, !tempMenu.isFinished);
                 break;
             case 'delete':
-                deleteToDo(tempMenu.localkey, tempMenu.id);
+                deleteData(tempMenu.route, tempMenu.type, tempMenu.id);
                 break;
 
             default:
                 break;
         }
     }
-
 
     menu.className = "context-menu-wrap";
 })
@@ -95,9 +134,8 @@ export default function App() {
         })
 
         try {
-            tempMenu.localkey = curPage.path.slice(1) + "ListData";
+            tempMenu.route = pathname.slice(1);
         } catch (error) { }
-
 
         document.title = curPage?.meta.title || "ToDoList";
     }, [pathname])

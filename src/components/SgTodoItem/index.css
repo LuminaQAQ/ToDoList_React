@@ -37,6 +37,13 @@
   background-color: rgb(69, 69, 69);
   border-radius: 3px;
 }
+.sg-todo-item-wrap.finished .sg-todo-item-icon-check {
+  content: url("../../asserts/imgs/MainBody/todo-done.png");
+}
+.sg-todo-item-wrap.finished .sg-todo-item-text {
+  text-decoration: line-through;
+  color: #a1a1a1;
+}
 .sg-todo-item-wrap .sg-todo-item-icon-check {
   width: 1.5rem;
   height: 1.5rem;

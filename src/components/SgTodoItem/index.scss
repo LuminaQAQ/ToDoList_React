@@ -12,6 +12,16 @@
 
   width: calc(100% - 2rem);
 
+  &.finished {
+    .sg-todo-item-icon-check {
+      content: url("../../asserts/imgs/MainBody/todo-done.png");
+    }
+    .sg-todo-item-text {
+      text-decoration: line-through;
+      color: #a1a1a1;
+    }
+  }
+
   .sg-todo-item-icon-check {
     @include icon(1.5rem);
 

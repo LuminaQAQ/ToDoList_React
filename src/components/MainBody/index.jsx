@@ -15,14 +15,13 @@ import "../../asserts/style/mobile.css"
 import { setData } from '../../utils/handleData'
 
 export default function MainBody() {
+    const { pathname } = useLocation();
     const routes = useRoutes(MyRoutes);
 
     const [isHide, setIsHide] = useState(true);
 
     const todoInputRef = useRef();
     const [todoText, setTodoText] = useState('');
-
-    const { pathname } = useLocation();
 
     // ------- nav的展开与关闭 -------
     // #region
@@ -38,7 +37,9 @@ export default function MainBody() {
 
     // ------- 更新ToDo框的值 -------
     // #region
-    function handleText() {
+    function handleText(e) {
+        if (e.keyCode === 13) addList();
+
         setTodoText(todoInputRef.current.value);
     }
     // #endregion
@@ -54,6 +55,13 @@ export default function MainBody() {
         setTodoText('');
 
         return setData(todoText, pathname.slice(1));
+    }
+
+    function handleAddNodeDisplay() {
+        if (pathname.slice(1) === "finished" || pathname.slice(1) === "search")
+            return { display: 'none' };
+        else
+            return { display: 'flex' };
     }
     // #endregion
     // ------- end -------
@@ -112,7 +120,10 @@ export default function MainBody() {
 
             {/* ------ 添加todo ----- */}
             {/* #region */}
-            <section className='add-task-wrap'>
+            <section
+                className='add-task-wrap'
+                style={handleAddNodeDisplay()}
+            >
                 <input
                     ref={todoInputRef}
                     className='sg-todo-item-text'

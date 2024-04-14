@@ -30,7 +30,7 @@ export default function TaskListView() {
             {
                 allTask.map(item => {
                     return (
-                        <SgTodoItem key={item.id} {...item} />
+                        <SgTodoItem pathname={pathname.slice(1)} key={item.id} {...item} />
                     )
                 })
             }

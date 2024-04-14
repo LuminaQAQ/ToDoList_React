@@ -14,6 +14,9 @@ import SettingView from '../pages/Setting'
 // user
 import UserTaskView from '../pages/UserTask';
 
+// search
+import SearchView from '../pages/SearchView'
+
 const myRoutes = [
     // 重定向
     {
@@ -66,6 +69,13 @@ const myRoutes = [
         path: '/setting',
         meta: { title: '设置' },
         element: <SettingView />,
+    },
+
+    // 搜索
+    {
+        path: '/search',
+        meta: { title: '搜索' },
+        element: <SearchView />,
     },
 ]
 

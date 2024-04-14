@@ -1,19 +1,18 @@
 import React, { useState, Fragment } from 'react'
 import { subscribe } from 'pubsub-js';
 
-import { fetchFinishedListData, setFinishedListData } from '../../api/api';
-
 import EmptyStatus from '../../components/EmptyStatus';
 import SgTodoItem from "../../components/SgTodoItem"
+import { useLocation } from 'react-router-dom';
+import { fetchData } from '../../utils/handleData';
 
-export default function TaskListView() {
-    const initData = fetchFinishedListData('finishedListData') || [];
+export default function FinishedView() {
+    const { pathname } = useLocation();
+    const initData = fetchData(pathname.slice(1));
     const [finished, setFinished] = useState(initData);
 
 
-    subscribe('finishedListData', function (pubkey, valObj) {
-        const { localKey, data } = valObj;
-        setFinishedListData(localKey, data);
+    subscribe('finished', function (pubkey, data) {
         setFinished(data);
     });
 
@@ -29,7 +28,7 @@ export default function TaskListView() {
             {
                 finished.map(item => {
                     return (
-                        <SgTodoItem key={item.id} {...item} />
+                        <SgTodoItem pathname={pathname.slice(1)} key={item.id} {...item} />
                     )
                 })
             }
