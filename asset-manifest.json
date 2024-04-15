@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "./static/css/main.5dfe8d19.css",
+    "main.js": "./static/js/main.51c5efe8.js",
+    "static/media/wriggle.jpg": "./static/media/wriggle.e49669bf4d69076560b5.jpg",
+    "static/media/snow.jpg": "./static/media/snow.627e5411b50e968af0b9.jpg",
+    "static/media/flower-field.jpg": "./static/media/flower-field.1e897d647272a8895e3a.jpg",
+    "static/media/sunset-glow.jpg": "./static/media/sunset-glow.af94d378f5e927aceb0d.jpg",
+    "static/media/hilltop.jpg": "./static/media/hilltop.68c66f9c07c7307da051.jpg",
+    "static/media/fancy.jpg": "./static/media/fancy.b636ecff994a90f32a5e.jpg",
+    "static/media/mountain.jpg": "./static/media/mountain.f0f282d12a68c4cf8fc5.jpg",
+    "static/media/autumn.jpg": "./static/media/autumn.ac0463311da8d05b1aba.jpg",
+    "index.html": "./index.html",
+    "main.5dfe8d19.css.map": "./static/css/main.5dfe8d19.css.map",
+    "main.51c5efe8.js.map": "./static/js/main.51c5efe8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5dfe8d19.css",
+    "static/js/main.51c5efe8.js"
+  ]
+}
