@@ -1,70 +1,191 @@
-# Getting Started with Create React App
+# 页面预览
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://luminaqaq.github.io/ToDoList_React/](https://luminaqaq.github.io/ToDoList_React/)
 
-## Available Scripts
+# 功能完成情况
 
-In the project directory, you can run:
+- [x] 基本样式
+- [x] 基本 CRUD
+- [x] 基本 ToDo 功能
+- [x] 手动切换主题
+- [x] 自适应深色/浅色主题
+- [x] 移动端适配
+- [x] 自定义设置(ToDo 展示页面右上角的三个点)
+- [ ] 用户自定义分组
+- [ ] 用户信息
+- [ ] 结构优化
+- [ ] 数据处理方式优化
 
-### `npm start`
+# 项目使用
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 项目克隆
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`git clone https://github.com/LuminaQAQ/ToDoList_React.git`
 
-### `npm test`
+### 初始化
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+` npm install`
 
-### `npm run build`
+### 项目启动
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 项目打包
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm run build`
 
-### `npm run eject`
+# 树形文件目录
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```plaintext
+├─.gitignore
+├─LICENSE
+├─package-lock.json
+├─package.json
+├─project_structure.md
+├─public
+│ ├─favicon.ico
+│ ├─index.html
+│ ├─logo192.png
+│ ├─logo512.png
+│ └─manifest.json
+├─README.md
+└─src
+  ├─api
+  │ └─api.js
+  ├─App.css
+  ├─App.js
+  ├─App.scss
+  ├─asserts
+  │ ├─imgs
+  │ │ ├─BackgroundImages
+  │ │ │ ├─autumn.jpg
+  │ │ │ ├─fancy.jpg
+  │ │ │ ├─flower-field.jpg
+  │ │ │ ├─hilltop.jpg
+  │ │ │ ├─mountain.jpg
+  │ │ │ ├─snow.jpg
+  │ │ │ ├─sunset-glow.jpg
+  │ │ │ └─wriggle.jpg
+  │ │ ├─MainBody
+  │ │ │ ├─add.png
+  │ │ │ ├─back.png
+  │ │ │ ├─bg1.jpg
+  │ │ │ ├─default_avatar.png
+  │ │ │ ├─empty-status.png
+  │ │ │ ├─favorite.png
+  │ │ │ ├─more.png
+  │ │ │ ├─nav.png
+  │ │ │ ├─todo-done.png
+  │ │ │ ├─todo-hover.png
+  │ │ │ ├─todo-unfinished.png
+  │ │ │ └─unfavorite.png
+  │ │ └─SideBar
+  │ │   ├─allTask.png
+  │ │   ├─create_group.png
+  │ │   ├─finished.png
+  │ │   ├─important.png
+  │ │   ├─search_dark.png
+  │ │   ├─search_light.png
+  │ │   ├─task-dark.png
+  │ │   ├─today.png
+  │ │   └─user_todo.png
+  │ └─style
+  │   ├─default.css
+  │   ├─default.scss
+  │   ├─icon.css
+  │   ├─icon.scss
+  │   ├─mobile.css
+  │   ├─mobile.scss
+  │   ├─theme.css
+  │   ├─theme.scss
+  │   ├─theme_option.css
+  │   └─theme_option.scss
+  ├─components
+  │ ├─ContextMenu
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─EmptyStatus
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─MainBody
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SgCategoryItem
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SgPageTitle
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SgRadioItem
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SgSwitchItem
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SgTodoItem
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SgUserCategoryItem
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SideBar
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ └─Switch
+  │   ├─index.css
+  │   ├─index.jsx
+  │   └─index.scss
+  ├─configs
+  │ └─config.js
+  ├─index.css
+  ├─index.js
+  ├─index.scss
+  ├─pages
+  │ ├─AllTask
+  │ │ └─index.jsx
+  │ ├─Finished
+  │ │ └─index.jsx
+  │ ├─Important
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─SearchView
+  │ │ └─index.jsx
+  │ ├─Setting
+  │ │ ├─index.css
+  │ │ ├─index.jsx
+  │ │ └─index.scss
+  │ ├─Task
+  │ │ └─index.jsx
+  │ ├─Today
+  │ │ └─index.jsx
+  │ ├─UserInfo
+  │ │ └─index.jsx
+  │ └─UserTask
+  │   └─index.jsx
+  ├─routes
+  │ └─index.js
+  └─utils
+    ├─handleData.js
+    └─localStroge.js
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 简单的说明
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `api/`：存放数据交互的 API 相关代码（本地存储，假装有后端 😋。但因为历史原因，导致和 utils/localData.js 分家了 😂）。
+- `asserts/`：存放应用程序中使用的静态资源，如图片等。
+- `components/`：存放 React 组件，包括上下文菜单、空状态、主体内容、单个待办事项等。
+- `configs/`：存放配置文件，如应用程序的配置信息。
+- `pages/`：存放页面组件，如全部任务、已完成任务、设置页面等。
+- `routes/`：存放路由配置文件，定义了页面之间的跳转规则。
+- `utils/`：存放工具函数，如处理数据的方法和本地存储相关的方法。
