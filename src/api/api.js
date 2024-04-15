@@ -14,6 +14,7 @@ import {
     fixedToDoGroup,
     toDoList,
     backgroundImg,
+    userToDoGroup,
 } from "../configs/config"
 
 // <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
@@ -156,6 +157,9 @@ export const initLocalData = () => {
 
     // 初始化todo
     setItem('toDoList', toDoList);
+
+    // 初始化用户列表
+    setItem('userToDoGroup', userToDoGroup);
 
     // 背景设置
     setItem('backgroundImg', backgroundImg)

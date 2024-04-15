@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 import "../../asserts/style/icon.css"
+import "./index.css"
 
 export default function SgUserCategoryItem(props) {
     const { to, icon, title, nums } = props;
@@ -15,7 +16,7 @@ export default function SgUserCategoryItem(props) {
             <section className={`icon-wrap userlist-icon`}></section>
 
             <section className='title-wrap'>
-                {title}
+                <span id='edit-title'>{title}</span>
             </section>
 
             <section

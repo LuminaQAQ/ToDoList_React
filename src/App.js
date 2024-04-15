@@ -14,10 +14,11 @@ import SideBar from './components/SideBar'
 import myRoutes from './routes'
 
 // 初始化本地储存
-import { changeToDoListBackgroundSetting, fetchConfirmBeforeDelete, initLocalData } from './api/api'
+import { changeToDoListBackgroundSetting, fetchConfirmBeforeDelete, initLocalData, setThemeSetting } from './api/api'
 import { alterTodoFinishedData, alterTodoImportantData, alterTodoTodayData, deleteData, fetchData } from './utils/handleData';
 import { getItem } from './utils/localStroge';
 initLocalData();
+setThemeSetting(getItem('theme'));
 
 
 let tempMenu = {

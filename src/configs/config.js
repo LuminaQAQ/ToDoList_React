@@ -84,8 +84,11 @@ export const fixedToDoGroup = [
     },
 ];
 
+// 用户的ToDo分组
+export const userToDoGroup = [];
+
 // ToDo数据
 export const toDoList = [];
 
 // 背景设置
-export const backgroundImg = 'black-bg';
+export const backgroundImg = '';

@@ -8,14 +8,15 @@ import "./index.css"
 
 // 组件
 import SgCategoryItem from '../SgCategoryItem'
-import SgUserCategoryItem from '../SgUserCategoryItem'
+// import SgUserCategoryItem from '../SgUserCategoryItem'
 
 // 图标
 import searchDarkIcon from '../../asserts/imgs/SideBar/search_dark.png'
-import createGroupIcon from '../../asserts/imgs/SideBar/create_group.png'
+// import createGroupIcon from '../../asserts/imgs/SideBar/create_group.png'
 import defaultUserAvatar from "../../asserts/imgs/MainBody/default_avatar.png";
 
 // 配置项
+// import { addUserToDoGroup } from '../../utils/handleData'
 import { fetchSidebarData } from '../../utils/handleData'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
@@ -38,6 +39,7 @@ export default function SideBar() {
         setFixedCategories(data);
     })
 
+    // 搜索
     function searchTodo(e) {
         setSearchInputText(e.target.value);
 
@@ -52,6 +54,11 @@ export default function SideBar() {
 
         if (pathname === "/search") setSearch(`keywords=${e.target.value}`);
     }
+
+    // 添加用户todo组
+    // function addUserGroup() {
+    //     addUserToDoGroup();
+    // }
 
     return (
         <section className='todolist-sidebar-wrap'>
@@ -103,29 +110,29 @@ export default function SideBar() {
                     })
                 }
             </section>
-            <hr />
+            {/* <hr /> */}
             {/* #endregion */}
             {/* --------End------ */}
 
             {/* ------ 用户自定义分类 ----- */}
             {/* #region */}
-            <section className='user-categories'>
-                <SgUserCategoryItem to={'/userTask'} title="无标题列表" icon="userlist" />
-            </section>
+            {/* <section className='user-categories'>
+                <SgUserCategoryItem to={'/userTask'} title="无标题列表" icon="userlist" isUser />
+            </section> */}
             {/* #endregion */}
             {/* --------End------ */}
 
             {/* ------ 新建功能区 ----- */}
             {/* #region */}
-            <section className='create-new-wrap'>
-                <section className='create-new-list'>
+            {/* <section className='create-new-wrap'>
+                <section className='create-new-list' onClick={addUserGroup}>
                     <section className='create-new-list-add-icon'>+</section>
                     <section className='create-new-list-add-text'>新建列表</section>
                 </section>
                 <section className='create-new-group'>
                     <img src={createGroupIcon} alt="" />
                 </section>
-            </section>
+            </section> */}
             {/* #endregion */}
             {/* --------End------ */}
         </section>

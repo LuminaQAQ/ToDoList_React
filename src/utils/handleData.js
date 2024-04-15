@@ -27,7 +27,7 @@ function getDate() {
 // ------- "增"操作 -------
 // #region
 
-// 增
+// 增加ToDo
 export function setData(content, type) {
     let local = getItem('toDoList') || [];
     let localSidebar = fetchSidebarData();
@@ -60,6 +60,11 @@ export function setData(content, type) {
     // #endregion
     // ------- end -------
 
+}
+
+// 增加用户自定义组
+export function addUserToDoGroup() {
+    console.log('core');
 }
 // #endregion
 // ------- end -------
@@ -228,8 +233,6 @@ export function fetchSidebarData() {
     setItem('fixedToDoGroup', newSideData);
     return getItem('fixedToDoGroup');
 }
-
-// todo搜索
 
 // #endregion
 // ------- end -------
