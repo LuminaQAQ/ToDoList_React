@@ -28,7 +28,7 @@
 
 ### 初始化
 
-` npm install`
+`npm install`
 
 ### 项目启动
 
