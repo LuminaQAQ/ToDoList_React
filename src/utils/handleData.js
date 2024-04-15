@@ -29,7 +29,7 @@ function getDate() {
 
 // 增
 export function setData(content, type) {
-    let local = getItem('toDoList');
+    let local = getItem('toDoList') || [];
     let localSidebar = fetchSidebarData();
 
     const date = getDate();
@@ -39,7 +39,7 @@ export function setData(content, type) {
     // todo数据
     const curData = {
         id: nanoid(),
-        todo_id: Number(local[local.length - 1].todo_id) + 1 || 0,
+        todo_id: Number(local[local.length - 1]?.todo_id) + 1 || 0,
         date,
         isFinished: false,
         isImportant: type === "important" ? true : false,
