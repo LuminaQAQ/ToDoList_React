@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 import './index.css'
 
+
 export default function SgCategoryItem(props) {
-    
+
     const { to, icon, title, nums } = props;
 
     function isActived(status) {

@@ -1,0 +1,79 @@
+@mixin dark_theme {
+}
+
+@mixin light_theme {
+  $light-bgc: darken(rgb(255, 255, 255), 7) !important;
+  $light-text-color: black !important;
+  $light-element-hover: rgba(204, 204, 204, 0.5) !important;
+
+  .todolist-sidebar-wrap,
+  .todolist-sidebar-wrap .search-wrap .search-main input,
+  .add-task-wrap,
+  .todolist-main-wrap .add-task-wrap input,
+  .sg-todo-item-wrap,
+  .setting-container {
+    background: $light-bgc;
+    color: $light-text-color;
+  }
+
+  .todolist-sidebar-wrap {
+    .search-icon {
+      content: url("../imgs/SideBar/search_light.png") !important;
+    }
+
+    .fixed-categories,
+    .user-categories,
+    .create-new-wrap {
+      & > section > a,
+      .sg-category-item-wrap,
+      .create-new-list,
+      .create-new-group {
+        color: #222222;
+      }
+
+      & > section > a:hover,
+      .sg-category-item-wrap:hover,
+      .create-new-list:hover,
+      .create-new-group:hover {
+        background: $light-element-hover;
+      }
+    }
+
+    .sg-category-item-wrap .nums-badge-wrap {
+      background: #dfdfdf !important ;
+    }
+  }
+
+  .setting-container {
+    .sg-switch-item-wrap {
+      color: $light-text-color;
+    }
+    .switch-wrap {
+      background: $light-bgc;
+      border: 1.5px solid #cdcdce !important;
+
+      &.on {
+        background-color: #76b9ed !important;
+
+        &::before {
+          background-color: $light-bgc;
+        }
+      }
+    }
+
+    .sg-radio-wrap {
+      .radio-circle {
+        border: 1.5px solid #cdcdce !important;
+        background-color: $light-bgc;
+
+        &::before {
+          background-color: $light-bgc;
+        }
+      }
+
+      input:checked + label .radio-circle {
+        background-color: #76b9ed !important;
+      }
+    }
+  }
+}

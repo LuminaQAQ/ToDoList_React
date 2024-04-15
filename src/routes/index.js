@@ -43,7 +43,7 @@ const myRoutes = [
     },
     {
         path: '/allTask',
-        meta: { title: '所有' },
+        meta: { title: '全部' },
         element: <AllTaskView />,
     },
     {

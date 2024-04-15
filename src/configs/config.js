@@ -21,21 +21,21 @@ export const regular = [
 export const theme = [
     {
         ownership: 'theme',
-        id: "浅色主题",
+        id: "light",
         title: "浅色主题",
         name: "theme",
         checked: false,
     },
     {
         ownership: 'theme',
-        id: "深色主题",
+        id: "dark",
         title: "深色主题",
         name: "theme",
         checked: true,
     },
     {
         ownership: 'theme',
-        id: "默认主题",
+        id: "default",
         title: "默认主题",
         name: "theme",
         checked: false,
@@ -49,7 +49,6 @@ export const fixedToDoGroup = [
         icon: 'today',
         title: '我的一天',
         to: '/today?title=我的一天&icon=today',
-        nums: 0,
         ownership: 'fixed',
     },
     {
@@ -57,7 +56,6 @@ export const fixedToDoGroup = [
         to: '/important?title=重要&icon=important',
         icon: 'important',
         title: '重要',
-        nums: 0,
         checked: true,
         ownership: 'fixed',
     },
@@ -66,8 +64,6 @@ export const fixedToDoGroup = [
         to: '/allTask?title=全部&icon=allTask',
         icon: 'allTask',
         title: '全部',
-        nums: 0,
-        checked: true,
         ownership: 'fixed',
     },
     {
@@ -75,8 +71,7 @@ export const fixedToDoGroup = [
         to: '/finished?title=已完成&icon=finished',
         icon: 'finished',
         title: '已完成',
-        nums: 0,
-        isShow: true,
+        checked: true,
         ownership: 'fixed',
     },
     {
@@ -84,10 +79,13 @@ export const fixedToDoGroup = [
         to: '/taskList?title=任务&icon=taskList',
         icon: 'taskList',
         title: '任务',
-        nums: 0,
+        checked: true,
         ownership: 'fixed',
     },
 ];
 
 // ToDo数据
 export const toDoList = [];
+
+// 背景设置
+export const backgroundImg = 'black-bg';

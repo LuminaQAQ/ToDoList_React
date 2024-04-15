@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { nanoid } from 'nanoid';
 
 import { subscribe } from 'pubsub-js'
 
@@ -90,9 +91,14 @@ export default function SideBar() {
             {/* #region */}
             <section className='fixed-categories'>
                 {
-                    fixedCategories.map((item, key) => {
+                    fixedCategories.map((item) => {
                         return (
-                            <SgCategoryItem key={key} {...item} />
+                            <section
+                                key={nanoid()}
+                                style={item.checked === true || item.checked === undefined ? { display: 'block' } : { display: 'none' }}
+                            >
+                                <SgCategoryItem {...item} />
+                            </section>
                         )
                     })
                 }

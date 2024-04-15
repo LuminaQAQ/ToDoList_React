@@ -14,8 +14,9 @@ import SideBar from './components/SideBar'
 import myRoutes from './routes'
 
 // 初始化本地储存
-import { initLocalData } from './api/api'
+import { changeToDoListBackgroundSetting, fetchConfirmBeforeDelete, initLocalData } from './api/api'
 import { alterTodoFinishedData, alterTodoImportantData, alterTodoTodayData, deleteData, fetchData } from './utils/handleData';
+import { getItem } from './utils/localStroge';
 initLocalData();
 
 
@@ -110,7 +111,17 @@ window.addEventListener('click', function (e) {
                 alterTodoFinishedData(tempMenu.route, tempMenu.id, !tempMenu.isFinished);
                 break;
             case 'delete':
-                deleteData(tempMenu.route, tempMenu.type, tempMenu.id);
+                // 调取设置
+                let setting = fetchConfirmBeforeDelete();
+
+                // 如果设置为真
+                if (setting.checked && setting.checked === true) {
+                    const flag = this.confirm('确认删除这条ToDo吗?');
+                    if (flag) deleteData(tempMenu.route, tempMenu.type, tempMenu.id);
+                } else {
+                    deleteData(tempMenu.route, tempMenu.type, tempMenu.id);
+                }
+
                 break;
 
             default:
@@ -134,6 +145,7 @@ export default function App() {
         })
 
         try {
+            changeToDoListBackgroundSetting(getItem('backgroundImg'));
             tempMenu.route = pathname.slice(1);
         } catch (error) { }
 

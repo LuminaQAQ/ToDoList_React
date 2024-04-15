@@ -13,6 +13,7 @@ import {
     theme,
     fixedToDoGroup,
     toDoList,
+    backgroundImg,
 } from "../configs/config"
 
 // <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
@@ -25,6 +26,27 @@ export function fetchRegularSetting() {
     return getItem('regular');
 }
 
+// 在顶部添加新任务
+export function fetchAddTaskOnTop() {
+    return getItem('regular').filter(item => {
+        return item.title === "在顶部添加新任务";
+    })[0];
+}
+
+// 将带有星标的任务移至顶部
+export function fetchStarTaskMoveOnTop() {
+    return getItem('regular').filter(item => {
+        return item.title === "将带有星标的任务移至顶部";
+    })[0];
+}
+
+export function fetchConfirmBeforeDelete() {
+    return getItem('regular').filter(item => {
+        return item.title === "在删除前确认";
+    })[0];
+}
+
+// 在删除前确认
 export function setRegularSetting(val) {
     return setItem('regular', val);
 }
@@ -38,6 +60,18 @@ export function fetchThemeSetting() {
 }
 
 export function setThemeSetting(val) {
+    const theme = val.filter(item => {
+        return item.checked === true
+    })[0];
+
+    // 主题切换
+    setTimeout(() => {
+        const container = document.querySelector('.todolist-main-container');
+
+        if (theme.id === "light") container.className = "todolist-main-container light";
+        else container.className = "todolist-main-container";
+    }, 10);
+
     return setItem('theme', val);
 }
 // #endregion
@@ -46,11 +80,26 @@ export function setThemeSetting(val) {
 // ------- "智能列表设置"处理 -------
 // #region
 export function fetchfixedToDoGroupSetting() {
-    return getItem('fixed');
+    const group = getItem('fixedToDoGroup');
+
+    return group;
 }
 
 export function setfixedToDoGroupSetting(val) {
-    return setItem('fixed', val);
+    setItem('fixedToDoGroup', val);
+
+    return val
+}
+// #endregion
+// ------- end -------
+
+// ------- todo列表背景设置 -------
+// #region
+export function changeToDoListBackgroundSetting(img) {
+    const wrap = document.querySelector('.todolist-main-wrap');
+    wrap.className = `todolist-main-wrap ${img}`;
+
+    setItem('backgroundImg', img);
 }
 // #endregion
 // ------- end -------
@@ -90,110 +139,6 @@ export function deleteToDo(localkey, id) {
 // <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
 // <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
 
-// ------- "侧边栏"数据处理 -------
-// #region
-export function fetchFixedToDoGroup(key) {
-    return getItem(key);
-}
-
-export function setFixedToDoGroup(key, val) {
-    return setItem(key, val);
-}
-
-// export function searchToDoList(key) {
-//     console.log(key);
-// }
-// #endregion
-// ------- end -------
-
-
-// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
-// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
-// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
-
-
-// ------- "我的一天"数据处理 -------
-// #region
-
-// 获取"我的一天"数据
-export const fetchTodayData = () => {
-    return getItem('todayListData');
-}
-
-// 更新"我的一天"数据
-export const setTodayData = (val) => {
-    return setItem('todayListData', val);
-}
-
-// #endregion
-// ------- end -------
-
-// ------- "重要"数据处理 -------
-// #region
-
-// 获取"重要"数据
-export const fetchImportantData = () => {
-    return getItem('importantListData');
-}
-
-// 更新"重要"数据
-export const setImportantData = (val) => {
-    return setItem('importantListData', val);
-}
-
-// #endregion
-// ------- end -------
-
-// ------- "全部"数据处理 -------
-// #region
-
-// 获取"全部"数据
-export const fetchAllTaskListData = () => {
-    return getItem('allTaskListData');
-}
-
-// 更新"全部"数据
-export const setAllTaskListData = (val) => {
-    return setItem('allTaskListData', val);
-}
-// #endregion
-// ------- end -------
-
-// ------- "已完成"数据处理 -------
-// #region
-
-// 获取"已完成"数据
-export const fetchFinishedListData = (key) => {
-    return getItem(key);
-}
-
-// 更新"已完成"数据
-export const setFinishedListData = (key, val) => {
-    return setItem(key, val);
-}
-// #endregion
-// ------- end -------
-
-// ------- "任务"数据处理 -------
-// #region
-
-// 获取"任务"数据
-export const fetchTaskListData = () => {
-    return getItem('taskListListData');
-}
-
-// 更新"任务"数据
-export const setTaskListData = (val) => {
-    return setItem('taskListListData', val);
-}
-// #endregion
-// ------- end -------
-
-
-// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
-// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
-// <<<<<<><><><><><><><><><><><><><><><><><><><>>>>>>
-
 
 // ------- 初始化本地储存 -------
 // #region
@@ -209,8 +154,11 @@ export const initLocalData = () => {
     // 默认显示的ToDo分组
     setItem('fixedToDoGroup', fixedToDoGroup);
 
-    // 初始化
+    // 初始化todo
     setItem('toDoList', toDoList);
+
+    // 背景设置
+    setItem('backgroundImg', backgroundImg)
 
     // 是否执行过这个初始化函数
     setItem('isInit', true)

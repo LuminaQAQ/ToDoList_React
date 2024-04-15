@@ -1,3 +1,4 @@
+@import "./asserts/style/theme.css";
 .todolist-main-container {
   display: flex;
   height: 100%;

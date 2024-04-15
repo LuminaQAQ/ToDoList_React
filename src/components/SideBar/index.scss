@@ -5,6 +5,7 @@
 .todolist-sidebar-wrap {
   /* ------- root ------- */
   /* #region  */
+  position: relative;
   background-color: $dark-bgcolor;
   color: $dark-text-color;
 
@@ -101,6 +102,10 @@
   /* ------- 新建的功能组 ------- */
   /* #region  */
   .create-new-wrap {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0;
+
     display: flex;
     align-items: center;
     justify-content: space-between;

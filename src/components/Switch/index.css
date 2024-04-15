@@ -23,6 +23,78 @@
 /* #region  */
 /* #endregion */
 /* ------- end  ------- */
+/* ------- 背景 ------- */
+/* #region  */
+.flower-field {
+  background-image: url("../../asserts/imgs/BackgroundImages/flower-field.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.sunset-glow {
+  background-image: url("../../asserts/imgs/BackgroundImages/sunset-glow.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.mountain {
+  background-image: url("../../asserts/imgs/BackgroundImages/mountain.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.fancy {
+  background-image: url("../../asserts/imgs/BackgroundImages/fancy.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.hilltop {
+  background-image: url("../../asserts/imgs/BackgroundImages/hilltop.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.wriggle {
+  background-image: url("../../asserts/imgs/BackgroundImages/wriggle.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.snow {
+  background-image: url("../../asserts/imgs/BackgroundImages/snow.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.autumn {
+  background-image: url("../../asserts/imgs/BackgroundImages/autumn.jpg") !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.black-bg {
+  background-color: #2c2c2c !important;
+  background-image: none !important;
+}
+
+.skyblue-bg {
+  background-color: skyblue !important;
+  background-image: none !important;
+}
+
+.green-bg {
+  background-color: #90ee90 !important;
+  background-image: none !important;
+}
+
+.white-bg {
+  background-color: #ededed !important;
+  background-image: none !important;
+}
+
+/* #endregion */
+/* ------- end  ------- */
 .switch-wrap {
   position: relative;
   width: 2.5rem;

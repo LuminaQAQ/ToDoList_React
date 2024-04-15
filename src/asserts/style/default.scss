@@ -92,3 +92,66 @@ $check-off-button: #cdcdce;
 }
 /* #endregion */
 /* ------- end  ------- */
+
+/* ------- 背景 ------- */
+/* #region  */
+
+@mixin bg($url) {
+  background-image: url($url) !important;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.flower-field {
+  @include bg("../../asserts/imgs/BackgroundImages/flower-field.jpg");
+}
+
+.sunset-glow {
+  @include bg("../../asserts/imgs/BackgroundImages/sunset-glow.jpg");
+}
+
+.mountain {
+  @include bg("../../asserts/imgs/BackgroundImages/mountain.jpg");
+}
+
+.fancy {
+  @include bg("../../asserts/imgs/BackgroundImages/fancy.jpg");
+}
+
+.hilltop {
+  @include bg("../../asserts/imgs/BackgroundImages/hilltop.jpg");
+}
+
+.wriggle {
+  @include bg("../../asserts/imgs/BackgroundImages/wriggle.jpg");
+}
+
+.snow {
+  @include bg("../../asserts/imgs/BackgroundImages/snow.jpg");
+}
+
+.autumn {
+  @include bg("../../asserts/imgs/BackgroundImages/autumn.jpg");
+}
+
+.black-bg {
+  background-color: lighten($dark-bgcolor, 4) !important;
+  background-image: none !important;
+}
+
+.skyblue-bg {
+  background-color: skyblue !important;
+  background-image: none !important;
+}
+
+.green-bg {
+  background-color: #90ee90 !important;
+  background-image: none !important;
+}
+
+.white-bg {
+  background-color: #ededed !important;
+  background-image: none !important;
+}
+/* #endregion */
+/* ------- end  ------- */

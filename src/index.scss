@@ -1,3 +1,5 @@
+@import "./asserts/style/theme.css";
+
 body,
 html {
   margin: 0;
@@ -25,4 +27,8 @@ hr {
 .todolist-main-wrap,
 .todolist-sidebar-wrap {
   user-select: none;
+}
+
+.todolist-main-container * {
+  transition: background-color 1s;
 }

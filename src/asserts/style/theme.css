@@ -1,0 +1,134 @@
+@media (prefers-color-scheme: light) {
+  .todolist-sidebar-wrap,
+  .todolist-sidebar-wrap .search-wrap .search-main input,
+  .add-task-wrap,
+  .todolist-main-wrap .add-task-wrap input,
+  .sg-todo-item-wrap,
+  .setting-container {
+    background: #ededed !important;
+    color: black !important;
+  }
+  .todolist-sidebar-wrap .search-icon {
+    content: url("../imgs/SideBar/search_light.png") !important;
+  }
+  .todolist-sidebar-wrap .fixed-categories > section > a,
+  .todolist-sidebar-wrap .fixed-categories .sg-category-item-wrap,
+  .todolist-sidebar-wrap .fixed-categories .create-new-list,
+  .todolist-sidebar-wrap .fixed-categories .create-new-group,
+  .todolist-sidebar-wrap .user-categories > section > a,
+  .todolist-sidebar-wrap .user-categories .sg-category-item-wrap,
+  .todolist-sidebar-wrap .user-categories .create-new-list,
+  .todolist-sidebar-wrap .user-categories .create-new-group,
+  .todolist-sidebar-wrap .create-new-wrap > section > a,
+  .todolist-sidebar-wrap .create-new-wrap .sg-category-item-wrap,
+  .todolist-sidebar-wrap .create-new-wrap .create-new-list,
+  .todolist-sidebar-wrap .create-new-wrap .create-new-group {
+    color: #222222;
+  }
+  .todolist-sidebar-wrap .fixed-categories > section > a:hover,
+  .todolist-sidebar-wrap .fixed-categories .sg-category-item-wrap:hover,
+  .todolist-sidebar-wrap .fixed-categories .create-new-list:hover,
+  .todolist-sidebar-wrap .fixed-categories .create-new-group:hover,
+  .todolist-sidebar-wrap .user-categories > section > a:hover,
+  .todolist-sidebar-wrap .user-categories .sg-category-item-wrap:hover,
+  .todolist-sidebar-wrap .user-categories .create-new-list:hover,
+  .todolist-sidebar-wrap .user-categories .create-new-group:hover,
+  .todolist-sidebar-wrap .create-new-wrap > section > a:hover,
+  .todolist-sidebar-wrap .create-new-wrap .sg-category-item-wrap:hover,
+  .todolist-sidebar-wrap .create-new-wrap .create-new-list:hover,
+  .todolist-sidebar-wrap .create-new-wrap .create-new-group:hover {
+    background: rgba(204, 204, 204, 0.5) !important;
+  }
+  .todolist-sidebar-wrap .sg-category-item-wrap .nums-badge-wrap {
+    background: #dfdfdf !important;
+  }
+  .setting-container .sg-switch-item-wrap {
+    color: black !important;
+  }
+  .setting-container .switch-wrap {
+    background: #ededed !important;
+    border: 1.5px solid #cdcdce !important;
+  }
+  .setting-container .switch-wrap.on {
+    background-color: #76b9ed !important;
+  }
+  .setting-container .switch-wrap.on::before {
+    background-color: #ededed !important;
+  }
+  .setting-container .sg-radio-wrap .radio-circle {
+    border: 1.5px solid #cdcdce !important;
+    background-color: #ededed !important;
+  }
+  .setting-container .sg-radio-wrap .radio-circle::before {
+    background-color: #ededed !important;
+  }
+  .setting-container .sg-radio-wrap input:checked + label .radio-circle {
+    background-color: #76b9ed !important;
+  }
+}
+.todolist-main-container.light .todolist-sidebar-wrap,
+.todolist-main-container.light .todolist-sidebar-wrap .search-wrap .search-main input,
+.todolist-main-container.light .add-task-wrap,
+.todolist-main-container.light .todolist-main-wrap .add-task-wrap input,
+.todolist-main-container.light .sg-todo-item-wrap,
+.todolist-main-container.light .setting-container {
+  background: #ededed !important;
+  color: black !important;
+}
+.todolist-main-container.light .todolist-sidebar-wrap .search-icon {
+  content: url("../imgs/SideBar/search_light.png") !important;
+}
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories > section > a,
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories .sg-category-item-wrap,
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories .create-new-list,
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories .create-new-group,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories > section > a,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories .sg-category-item-wrap,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories .create-new-list,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories .create-new-group,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap > section > a,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap .sg-category-item-wrap,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap .create-new-list,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap .create-new-group {
+  color: #222222;
+}
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories > section > a:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories .sg-category-item-wrap:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories .create-new-list:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .fixed-categories .create-new-group:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories > section > a:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories .sg-category-item-wrap:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories .create-new-list:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .user-categories .create-new-group:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap > section > a:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap .sg-category-item-wrap:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap .create-new-list:hover,
+.todolist-main-container.light .todolist-sidebar-wrap .create-new-wrap .create-new-group:hover {
+  background: rgba(204, 204, 204, 0.5) !important;
+}
+.todolist-main-container.light .todolist-sidebar-wrap .sg-category-item-wrap .nums-badge-wrap {
+  background: #dfdfdf !important;
+}
+.todolist-main-container.light .setting-container .sg-switch-item-wrap {
+  color: black !important;
+}
+.todolist-main-container.light .setting-container .switch-wrap {
+  background: #ededed !important;
+  border: 1.5px solid #cdcdce !important;
+}
+.todolist-main-container.light .setting-container .switch-wrap.on {
+  background-color: #76b9ed !important;
+}
+.todolist-main-container.light .setting-container .switch-wrap.on::before {
+  background-color: #ededed !important;
+}
+.todolist-main-container.light .setting-container .sg-radio-wrap .radio-circle {
+  border: 1.5px solid #cdcdce !important;
+  background-color: #ededed !important;
+}
+.todolist-main-container.light .setting-container .sg-radio-wrap .radio-circle::before {
+  background-color: #ededed !important;
+}
+.todolist-main-container.light .setting-container .sg-radio-wrap input:checked + label .radio-circle {
+  background-color: #76b9ed !important;
+}

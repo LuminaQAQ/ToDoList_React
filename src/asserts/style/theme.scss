@@ -1,0 +1,15 @@
+@import "./theme_option.scss";
+
+@media (prefers-color-scheme: dark) {
+  //   .todolist-sidebar-wrap {
+  //     background: #222222;
+  //   }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light_theme;
+}
+
+.todolist-main-container.light {
+  @include light_theme;
+}

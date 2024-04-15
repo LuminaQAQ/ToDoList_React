@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 
 // 动态数据
 import { publish } from 'pubsub-js'
+import { fetchAddTaskOnTop, fetchStarTaskMoveOnTop } from '../api/api';
 
 // 数据存储方法
 import {
@@ -31,8 +32,6 @@ export function setData(content, type) {
     let local = getItem('toDoList');
     let localSidebar = fetchSidebarData();
 
-    // console.log(localSidebar);
-
     const date = getDate();
 
     // ------- 本地数据 -------
@@ -40,6 +39,7 @@ export function setData(content, type) {
     // todo数据
     const curData = {
         id: nanoid(),
+        todo_id: Number(local[local.length - 1].todo_id) + 1 || 0,
         date,
         isFinished: false,
         isImportant: type === "important" ? true : false,
@@ -172,6 +172,19 @@ export function fetchData(type) {
             return item.type === type;
         });
     }
+
+
+    // 如果设置 "在顶部添加新任务"
+    const addOnTop = fetchAddTaskOnTop();
+    // 如果设置 "将带有星标的任务移至顶部"
+    const starOnTop = fetchStarTaskMoveOnTop();
+
+    res.sort((a, b) => {
+        if (starOnTop.checked && a.isImportant !== b.isImportant) return b.isImportant - a.isImportant;
+        if (addOnTop.checked && a.todo_id !== b.todo_id) return b.todo_id - a.todo_id;
+
+        return a.todo_id - b.todo_id;
+    })
 
     return res;
 }

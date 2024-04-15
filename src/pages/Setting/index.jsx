@@ -1,8 +1,12 @@
+import { nanoid } from 'nanoid';
 import React from 'react'
+import { publish } from 'pubsub-js'
 import { useNavigate } from 'react-router-dom'
-import { fetchfixedToDoGroupSetting, fetchRegularSetting, fetchThemeSetting, setfixedToDoGroupSetting, setRegularSetting, setThemeSetting } from '../../api/api';
+
+import { changeToDoListBackgroundSetting, fetchfixedToDoGroupSetting, fetchRegularSetting, fetchThemeSetting, setfixedToDoGroupSetting, setRegularSetting, setThemeSetting } from '../../api/api';
 import SgRadioItem from '../../components/SgRadioItem';
 import SgSwitchItem from '../../components/SgSwitchItem';
+import { fetchSidebarData } from '../../utils/handleData';
 
 import "./index.css"
 
@@ -23,10 +27,11 @@ export default function Setting() {
     function getSonData(ownership, id, isChecked) {
         switch (ownership) {
             case "regular":
-                changeSetting(regularOptionLocal, setRegularSetting, id, isChecked)
+                changeSetting(regularOptionLocal, setRegularSetting, id, isChecked);
                 break;
             case "fixed":
                 changeSetting(fixedToDoGroupLocal, setfixedToDoGroupSetting, id, isChecked);
+                publish('sidebar-reflash', fetchSidebarData());
                 break;
             case "theme":
                 changeTheme(id, isChecked);
@@ -53,7 +58,7 @@ export default function Setting() {
     }
 
     // 改变主题
-    function changeTheme(type, isChecked) {
+    function changeTheme(type, bg_img) {
         const res = themeOptionLocal.filter(item => {
             item.checked = false;
 
@@ -63,6 +68,15 @@ export default function Setting() {
         })
 
         setThemeSetting(res);
+    }
+
+    // 改变背景
+    function changBackgroundImage(e) {
+        setTimeout(() => {
+            const img = e.target.classList[1];
+
+            changeToDoListBackgroundSetting(img);
+        }, 10);
     }
 
     return (
@@ -88,7 +102,7 @@ export default function Setting() {
                             {
                                 regularOptionLocal.map(item => {
                                     return (
-                                        <SgSwitchItem key={item.title} row updateData={getSonData} {...item} />
+                                        <SgSwitchItem key={nanoid()} row updateData={getSonData} {...item} />
                                     )
                                 })
                             }
@@ -108,7 +122,7 @@ export default function Setting() {
                                 themeOptionLocal.map(item => {
                                     return (
                                         <SgRadioItem
-                                            key={item.id}
+                                            key={nanoid()}
                                             {...item}
                                             onChange={getSonData}
                                         />
@@ -130,10 +144,62 @@ export default function Setting() {
                             {
                                 fixedToDoGroupLocal.map(item => {
                                     return (
-                                        <SgSwitchItem key={item.title} row updateData={getSonData} {...item} />
+                                        <section key={nanoid()} style={item.checked !== undefined ? { display: 'block' } : { display: 'none' }}>
+                                            <SgSwitchItem row updateData={getSonData} {...item} />
+                                        </section>
                                     )
                                 })
                             }
+                        </section>
+                    </section>
+                    <hr />
+                    {/* #endregion */}
+                    {/* --------End------ */}
+
+
+                    {/* ------ todo栏背景 ----- */}
+                    {/* #region */}
+                    <section className='bg-choice-option'>
+                        <h3>背景</h3>
+                        <section className='option-list-wrap'>
+                            <section className='sg-bg-change-wrap flower-field'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap sunset-glow'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap mountain'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap fancy'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap hilltop'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap wriggle'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap snow'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap autumn'
+                                onClick={changBackgroundImage}
+                            />
+
+                            {/* 纯色背景 */}
+                            <section className='sg-bg-change-wrap black-bg'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap skyblue-bg'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap green-bg'
+                                onClick={changBackgroundImage}
+                            />
+                            <section className='sg-bg-change-wrap white-bg'
+                                onClick={changBackgroundImage}
+                            />
                         </section>
                     </section>
                     {/* #endregion */}
@@ -145,7 +211,7 @@ export default function Setting() {
                     {/* #region */}
                     <hr />
                     <section style={{ textAlign: 'center', marginBottom: "1rem" }}>
-                        <div>To Do List-by </div>
+                        <div>To Do List</div>
                         <div style={{ color: "gray" }}>© 2024 by Lumina - version: 0.0.1</div>
                     </section>
                     {/* #endregion */}
