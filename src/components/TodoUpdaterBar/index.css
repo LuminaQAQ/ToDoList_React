@@ -95,6 +95,42 @@
 
 /* #endregion */
 /* ------- end  ------- */
+.important-icon {
+  content: url("../imgs/SideBar/important.png");
+}
+
+.today-icon {
+  content: url("../imgs/SideBar/today.png");
+}
+
+.taskList-icon {
+  content: url("../imgs/SideBar/task-dark.png");
+}
+
+.search-icon {
+  content: url("../imgs/SideBar/search_dark.png");
+}
+
+.userlist-icon {
+  content: url("../imgs/SideBar/user_todo.png");
+}
+
+.finished-icon {
+  content: url("../imgs/SideBar/finished.png");
+}
+
+.allTask-icon {
+  content: url("../imgs/SideBar/allTask.png");
+}
+
+.empty-icon {
+  content: url("../imgs/MainBody/empty-status.png");
+}
+
+.delete-icon {
+  content: url("../imgs/UpdateBar/delete.png");
+}
+
 .todo-update-bar {
   position: relative;
   display: block;
@@ -122,6 +158,16 @@
 .todo-update-bar .todo-update-header .todo-update-header-content {
   flex: 1 0 auto;
 }
+.todo-update-bar .todo-update-center .sg-func-item {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  background-color: #373737;
+}
+.todo-update-bar .todo-update-center .sg-func-item:hover {
+  background-color: rgb(69, 69, 69);
+  border-radius: 3px;
+}
 .todo-update-bar .todo-update-footer {
   display: flex;
   align-items: center;
@@ -136,4 +182,18 @@
   flex: 1 0 auto;
   font-size: 0.75rem;
   color: #999999;
+}
+.todo-update-bar .todo-update-footer .delete-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+.todo-update-bar .todo-update-footer .delete-icon img {
+  width: 100%;
+  height: 100%;
+}
+.todo-update-bar .todo-update-footer .delete-icon:hover {
+  background-color: rgb(69, 69, 69);
+  border-radius: 3px;
 }

@@ -136,6 +136,21 @@
   width: calc(100% - 6rem);
   max-width: calc(100% - 6rem);
   word-wrap: break-word;
+  line-height: 1.25;
+}
+.sg-todo-item-wrap .sg-todo-item-text input {
+  display: block;
+  box-sizing: border-box;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 0.5rem;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  border: 0;
 }
 .sg-todo-item-wrap .sg-todo-item-icon-favorite {
   width: 1.5rem;

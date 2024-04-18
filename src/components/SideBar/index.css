@@ -112,6 +112,7 @@
   border-right: 1px solid rgba(204, 204, 204, 0.25);
   /* #endregion */
   /* ------- end  ------- */
+  overflow-y: hidden;
   /* ------- 用户信息区域 ------- */
   /* #region  */
   /* #endregion */
@@ -155,6 +156,8 @@
 }
 .todolist-sidebar-wrap .userinfo-wrap .userinfo-username {
   width: calc(100% - 5rem);
+  overflow: hidden;
+  white-space: nowrap;
 }
 .todolist-sidebar-wrap .search-wrap {
   display: flex;
@@ -190,7 +193,7 @@
 }
 .todolist-sidebar-wrap .fixed-categories {
   padding: 0 0.1rem;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 .todolist-sidebar-wrap .user-categories {
   height: calc(100% - 26.3rem);

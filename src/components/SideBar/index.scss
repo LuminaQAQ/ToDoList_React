@@ -20,6 +20,7 @@
   border-right: 1px solid rgba(204, 204, 204, 0.25);
   /* #endregion */
   /* ------- end  ------- */
+  overflow-y: hidden;
 
   /* ------- 用户信息区域 ------- */
   /* #region  */
@@ -44,6 +45,8 @@
 
     .userinfo-username {
       width: calc(100% - 5rem);
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
   /* #endregion */
@@ -81,7 +84,7 @@
   /* #region  */
   .fixed-categories {
     padding: 0 0.1rem;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
   /* #endregion */
   /* ------- end  ------- */

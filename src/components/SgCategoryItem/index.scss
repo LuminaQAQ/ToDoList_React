@@ -46,17 +46,26 @@
   /* #endregion */
   /* ------- end  ------- */
 
+  overflow: hidden;
+  white-space: nowrap;
+
   .icon-wrap {
     @include icon(1.5rem);
 
     margin-right: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .title-wrap {
     flex: 1 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .nums-badge-wrap {
     @include nums-badge;
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
