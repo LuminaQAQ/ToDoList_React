@@ -4,10 +4,12 @@
   .add-task-wrap,
   .todolist-main-wrap .add-task-wrap input,
   .sg-todo-item-wrap,
-  .todolist-main-wrap,
   .setting-container {
     background: #ededed !important;
     color: black !important;
+  }
+  .todolist-main-wrap {
+    background-color: #b9eef0 !important;
   }
   .todolist-sidebar-wrap .search-icon {
     content: url("../imgs/SideBar/search_light.png") !important;
@@ -72,10 +74,12 @@
 .todolist-main-container.light .add-task-wrap,
 .todolist-main-container.light .todolist-main-wrap .add-task-wrap input,
 .todolist-main-container.light .sg-todo-item-wrap,
-.todolist-main-container.light .todolist-main-wrap,
 .todolist-main-container.light .setting-container {
   background: #ededed !important;
   color: black !important;
+}
+.todolist-main-container.light .todolist-main-wrap {
+  background-color: #b9eef0 !important;
 }
 .todolist-main-container.light .todolist-sidebar-wrap .search-icon {
   content: url("../imgs/SideBar/search_light.png") !important;

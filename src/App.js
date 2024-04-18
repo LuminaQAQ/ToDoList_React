@@ -17,6 +17,7 @@ import myRoutes from './routes'
 import { changeToDoListBackgroundSetting, fetchConfirmBeforeDelete, initLocalData, setThemeSetting } from './api/api'
 import { alterTodoFinishedData, alterTodoImportantData, alterTodoTodayData, deleteData, fetchData } from './utils/handleData';
 import { getItem } from './utils/localStroge';
+import TodoUpdateBar from './components/TodoUpdaterBar';
 initLocalData();
 setThemeSetting(getItem('theme'));
 
@@ -76,7 +77,7 @@ window.addEventListener('contextmenu', function (e) {
                 // 某些情况下菜单选项名字改变
                 if (tempMenu.isFinished) addToFinished.innerHTML = '标记为"未完成"';
                 if (tempMenu.isImportant) addToImportant.innerHTML = '删除"重要"标记';
-                if (tempMenu.route === "today") addToToday.innerHTML = '删除"我的一天"标记';
+                if (tempMenu.type === "today") addToToday.innerHTML = '删除"我的一天"标记';
 
 
                 // #endregion
@@ -103,7 +104,7 @@ window.addEventListener('click', function (e) {
 
         switch (option) {
             case 'today':
-                alterTodoTodayData(tempMenu.route, tempMenu.id, tempMenu.type)
+                alterTodoTodayData(tempMenu.route, tempMenu.id, tempMenu.type);
                 break;
             case 'important':
                 alterTodoImportantData(tempMenu.route, tempMenu.id, !tempMenu.isImportant);
@@ -160,6 +161,7 @@ export default function App() {
         >
             <SideBar />
             <MainBody />
+            <TodoUpdateBar />
             <ContextMenu />
         </div>
     )

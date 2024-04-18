@@ -1,0 +1,71 @@
+@import "../../asserts/style/default.scss";
+@import "../../asserts/style/icon.scss";
+
+.todo-update-bar {
+  position: relative;
+  display: block;
+
+  user-select: none;
+
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: calc(30rem - 1rem);
+  height: 100%;
+
+  background-color: $dark-bgcolor;
+  color: $dark-text-color;
+  transition: width 0.3s, padding 0.3s;
+
+  &.close {
+    width: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .todo-update-header {
+    @include flex-center;
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+
+    text-align: center;
+
+    .todo-update-header-content {
+      flex: 1 0 auto;
+    }
+  }
+
+  .todo-update-center {
+    .sg-func-item {
+      @include element-hover;
+
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      background-color: $card-bgcolor;
+    }
+  }
+
+  .todo-update-footer {
+    @include flex-center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+
+    text-align: center;
+
+    .todo-update-footer-time {
+      flex: 1 0 auto;
+
+      font-size: 0.75rem;
+      color: darken($dark-text-color, 40);
+    }
+
+    .delete-icon {
+      @include icon(1.5rem);
+      @include element-hover;
+    }
+  }
+}

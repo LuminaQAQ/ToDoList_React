@@ -95,65 +95,45 @@
 
 /* #endregion */
 /* ------- end  ------- */
-.sg-todo-item-wrap {
+.todo-update-bar {
+  position: relative;
+  display: block;
+  user-select: none;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 29rem;
+  height: 100%;
+  background-color: #222222;
+  color: #ffffff;
+  transition: width 0.3s, padding 0.3s;
+}
+.todo-update-bar.close {
+  width: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+.todo-update-bar .todo-update-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #373737;
-  padding: 1rem;
-  margin: 0.25rem 0rem;
-  border-radius: 5px;
-  width: calc(100% - 2rem);
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
+  text-align: center;
 }
-.sg-todo-item-wrap:hover {
-  background-color: rgb(69, 69, 69);
-  border-radius: 3px;
+.todo-update-bar .todo-update-header .todo-update-header-content {
+  flex: 1 0 auto;
 }
-.sg-todo-item-wrap.finished .sg-todo-item-icon-check {
-  content: url("../../asserts/imgs/MainBody/todo-done.png");
+.todo-update-bar .todo-update-footer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
+  text-align: center;
 }
-.sg-todo-item-wrap.finished .sg-todo-item-text {
-  text-decoration: line-through;
-  color: #a1a1a1;
-}
-.sg-todo-item-wrap .sg-todo-item-icon-check {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 1rem;
-  object-fit: cover;
-  flex: 1 0 1.5rem;
-  max-width: 1.5rem;
-  content: url("../../asserts/imgs/MainBody/todo-unfinished.png");
-}
-.sg-todo-item-wrap .sg-todo-item-icon-check img {
-  width: 100%;
-  height: 100%;
-}
-.sg-todo-item-wrap .sg-todo-item-icon-check:hover {
-  content: url("../../asserts/imgs/MainBody/todo-done.png");
-}
-.sg-todo-item-wrap .sg-todo-item-text {
-  width: calc(100% - 6rem);
-  max-width: calc(100% - 6rem);
-  word-wrap: break-word;
-}
-.sg-todo-item-wrap .sg-todo-item-icon-favorite {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 1rem;
-  object-fit: cover;
-  flex: 1 0 1.5rem;
-  max-width: 1.5rem;
-  margin: 0;
-  content: url("../../asserts/imgs/MainBody/unfavorite.png");
-}
-.sg-todo-item-wrap .sg-todo-item-icon-favorite img {
-  width: 100%;
-  height: 100%;
-}
-.sg-todo-item-wrap .sg-todo-item-icon-favorite:hover {
-  content: url("../../asserts/imgs/SideBar/important.png");
-}
-.sg-todo-item-wrap .sg-todo-item-icon-favorite.important-view {
-  content: url("../../asserts/imgs/MainBody/favorite.png");
+.todo-update-bar .todo-update-footer .todo-update-footer-time {
+  flex: 1 0 auto;
+  font-size: 0.75rem;
+  color: #999999;
 }

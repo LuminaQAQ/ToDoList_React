@@ -85,6 +85,8 @@ export function deleteData(route, type, id) {
     setItem('toDoList', local);
     local = fetchData(route);
     publish(route, local);
+
+
     // #endregion
     // ------- end -------
 
@@ -105,9 +107,10 @@ export function deleteData(route, type, id) {
 // 改"完成"状态
 export function alterTodoFinishedData(route, id, isFinished) {
     let todoData = fetchData();
-
     todoData.map(item => {
-        if (item.id === id) item.isFinished = isFinished;
+        if (item.id === id) {
+            item.isFinished = isFinished;
+        }
 
         return item
     })
@@ -115,6 +118,7 @@ export function alterTodoFinishedData(route, id, isFinished) {
 
     setItem('toDoList', todoData);
     publish('sidebar-reflash', fetchSidebarData());
+    publish('openUpdateBar', id);
     publish(route, fetchData(route));
 }
 
@@ -151,6 +155,23 @@ export function alterTodoTodayData(route, id, type) {
     publish(route, fetchData(route));
 }
 
+// 改"ToDo内容"状态
+export function alterTodoContentData(route, id, content) {
+    let todoData = fetchData();
+
+    todoData.map(item => {
+        if (item.id === id)
+            item.content = content;
+
+        return item
+    })
+
+
+    setItem('toDoList', todoData);
+    publish('sidebar-reflash', fetchSidebarData());
+    publish(route, fetchData(route));
+}
+
 // #endregion
 // ------- end -------
 
@@ -166,13 +187,24 @@ export function fetchData(type) {
         res = local.filter(item => {
             return item.isImportant === true;
         })
-    }
-    else if (type === "finished") {
+    } else if (type === "finished") {
         res = local.filter(item => {
             return item.isFinished === true;
         })
-    }
-    else {
+    } else if (type === "today") {
+        res = local.filter(item => {
+            let date = item.date.split(' ')[0];
+            let newYMD = date.split('-');
+            const newDay = Number(newYMD[2]) + 1;
+            newYMD[2] = newDay;
+            const newDate = newYMD.join('-');
+
+            if (new Date(date) < new Date(newDate)) {
+                return item.type === type;
+            }
+            return false;
+        });
+    } else {
         res = local.filter(item => {
             return item.type === type;
         });
@@ -216,6 +248,21 @@ export function fetchSidebarData() {
         } else if (item.icon === "important") {
             item.nums = todoData.reduce((counter, todoObj) => {
                 if (item.icon === "important" && todoObj.isImportant) counter++;
+
+                return counter;
+            }, 0);
+        } else if (item.icon === "today") {
+            item.nums = todoData.reduce((counter, todoObj) => {
+
+                let date = todoObj.date.split(' ')[0];
+                let newYMD = date.split('-');
+                const newDay = Number(newYMD[2]) + 1;
+                newYMD[2] = newDay;
+                const newDate = newYMD.join('-');
+
+                if (todoObj.type === "today" && new Date(date) < new Date(newDate)) {
+                    counter++;
+                }
 
                 return counter;
             }, 0);

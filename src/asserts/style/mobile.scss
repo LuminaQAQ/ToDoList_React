@@ -2,6 +2,21 @@
   display: none;
 }
 
+@media screen and (max-width: 64rem) {
+  /* ------- 更新侧边栏 ------- */
+  /* #region  */
+  .todo-update-bar {
+    position: absolute !important;
+    height: calc(100% - 1rem);
+    width: 14rem !important;
+
+    right: 0;
+    top: 0;
+  }
+  /* #endregion */
+  /* ------- end  ------- */
+}
+
 @media screen and (max-width: 28rem) {
   /* ------- 侧边栏 ------- */
   /* #region  */
@@ -90,6 +105,14 @@
       height: 1.5rem !important;
       transition: height 0.3s;
     }
+  }
+  /* #endregion */
+  /* ------- end  ------- */
+
+  /* ------- 更新侧边栏 ------- */
+  /* #region  */
+  .todo-update-bar {
+    width: calc(100%) !important;
   }
   /* #endregion */
   /* ------- end  ------- */
